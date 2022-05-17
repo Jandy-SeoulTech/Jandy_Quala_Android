@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quala">
         <activity
-            android:name=".MainActivity"
+            android:name=".recommend.RecommendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.MyPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".introduce.IntroduceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

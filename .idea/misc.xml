@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
+        <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
+        <entry key="app/src/main/res/font/font_family.xml" value="0.40625" />
+        <entry key="app/src/main/res/layout/activity_introduce.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_drawer_header.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_introduce.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_main.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_my_page.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_recommend.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/menu/drawer_navigation.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_home.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_introduce.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_mypage.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_recommend.xml" value="0.37604166666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

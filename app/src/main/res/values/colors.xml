@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="quala_green">#006146</color>
+    <color name="quala_b1">#1b1d1f</color>
+    <color name="quala_b2">#26282b</color>
+    <color name="quala_white">#FFFFFF</color>
+    <color name="quala_g1">#f7f8f9</color>
+    <color name="quala_g2">#e8ebed</color>
+    <color name="quala_g3">#c9cdd2</color>
+    <color name="quala_g4">#9ea4aa</color>
+    <color name="quala_g5">#72787f</color>
+    <color name="quala_g6">#707070</color>
+    <color name="quala_g7">#454c53</color>
+
 </resources>

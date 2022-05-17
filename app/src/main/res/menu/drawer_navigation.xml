@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id = "@+id/home"
+        android:icon = "@drawable/ic_nv_home"
+        android:title = "홈" />
+    <item android:id = "@+id/introduce"
+        android:icon = "@drawable/ic_nv_introduce"
+        android:title = "술 소개" />
+    <item android:id = "@+id/recommend"
+        android:icon = "@drawable/ic_nv_recommend"
+        android:title = "술 추천" />
+    <item android:id = "@+id/mypage"
+        android:icon = "@drawable/ic_nv_mypage"
+        android:title = "마이페이지" />
+</menu>
