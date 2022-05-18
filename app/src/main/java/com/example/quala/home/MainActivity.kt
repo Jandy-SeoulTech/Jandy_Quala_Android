@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var adapter: RecoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_temp)
 
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        val datas = mutableListOf<RecoData>()
+        for (i in 1..10){
+            datas.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
+        }
+
+        adapter = RecoAdapter(datas)
+
+        binding.apply {
+            mainLayout.rvRecommend1.adapter = adapter
+            mainLayout.rvRecommend2.adapter = adapter
+            mainLayout.rvRecommend3.adapter = adapter
+
+            mainLayout.btnTest.setOnClickListener {
+                val intent = Intent(this@MainActivity, RecommendActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

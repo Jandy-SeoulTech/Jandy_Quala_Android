@@ -5,16 +5,20 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
+        <entry key="app/src/main/res/drawable/solid_button_grey.xml" value="0.3355" />
         <entry key="app/src/main/res/font/font_family.xml" value="0.40625" />
+        <entry key="app/src/main/res/layout-v28/layout_main_carousel.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_introduce.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_drawer_header.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_introduce.xml" value="0.3509963768115942" />
-        <entry key="app/src/main/res/layout/layout_main.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_main.xml" value="0.3834306956983537" />
+        <entry key="app/src/main/res/layout/layout_main_carousel.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_my_page.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_recommend.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/recycler_reco_item.xml" value="1.0" />
         <entry key="app/src/main/res/menu/drawer_navigation.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_home.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_introduce.xml" value="0.37604166666666666" />
@@ -28,5 +32,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3509963768115942" />
+      </ProjectState>
+    </option>
   </component>
 </project>
