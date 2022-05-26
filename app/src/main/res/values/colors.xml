@@ -18,5 +18,6 @@
     <color name="quala_g5">#72787f</color>
     <color name="quala_g6">#707070</color>
     <color name="quala_g7">#454c53</color>
-
+    <color name="quala_red">#f15b5b</color>
+    <color name="transparent">#00000000</color>
 </resources>

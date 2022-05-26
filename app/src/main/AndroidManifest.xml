@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quala">
         <activity
+            android:name=".detail.AlcoholDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".recommend.RecommendActivity"
             android:exported="false" />
         <activity

@@ -32,9 +32,15 @@ android {
     viewBinding {
         enabled = true
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
+
+    implementation 'tw.com.oneup.www:reviewbar:1.0.2' // ratingbar
+    implementation 'kr.co.prnd:persistBottomSheetFragment:1.0.0' // extand bottomsheet
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.core:core-ktx:1.7.0'

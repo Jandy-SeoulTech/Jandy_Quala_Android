@@ -1,11 +1,11 @@
 package com.example.quala.introduce
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.quala.R
 import com.example.quala.databinding.ActivityIntroduceBinding
@@ -13,10 +13,13 @@ import com.example.quala.home.MainActivity
 import com.example.quala.mypage.MyPageActivity
 import com.example.quala.recommend.RecommendActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 
 class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityIntroduceBinding
+    lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
+    lateinit var tabTitle: List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,20 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_temp)
 
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        // viewPager와 tablayout 설정
+        setViewPagerAndTabLayout()
+
+        binding.introduceLayout.apply {
+            //TODO: 서버 연동 후 실제 갯수로 적용
+            filterCnt = "총 " + "30" + "개"
+
+            linearSortBtn.setOnClickListener {
+                FragmentItemSortBottomSheet.newInstance().show(
+                    supportFragmentManager, FragmentItemSortBottomSheet.TAG
+                )
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -69,5 +86,17 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
         }
         return false
+    }
+
+    private fun setViewPagerAndTabLayout() {
+        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+        tabTitle = listOf("탁주", "과일주", "증류주", "기타")
+
+        binding.introduceLayout.apply {
+            viewPager.adapter = viewPagerFragmentAdapter
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = tabTitle[position]
+            }.attach()
+        }
     }
 }

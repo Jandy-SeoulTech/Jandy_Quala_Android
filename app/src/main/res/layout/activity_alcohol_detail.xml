@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.AlcoholDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:background="@color/quala_white"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/toolbar_detail">
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="75dp"
+        android:layout_height="140dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/item_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="고흥유자주"
+            android:textColor="@color/quala_b1"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_percent_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="8"
+            android:textColor="@color/quala_g7"
+            android:textSize="9sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_percent_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="%, "
+            android:textColor="@color/quala_g7"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_percent_num"
+            app:layout_constraintStart_toEndOf="@+id/tv_percent_num"
+            app:layout_constraintTop_toTopOf="@+id/tv_percent_num" />
+
+        <TextView
+            android:id="@+id/tv_volume_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="500"
+            android:textColor="@color/quala_g7"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_percent_num"
+            app:layout_constraintStart_toEndOf="@+id/tv_percent_unit"
+            app:layout_constraintTop_toTopOf="@+id/tv_percent_num" />
+
+        <TextView
+            android:id="@+id/tv_volume_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="ml"
+            android:textColor="@color/quala_g7"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_percent_num"
+            app:layout_constraintStart_toEndOf="@+id/tv_volume_num"
+            app:layout_constraintTop_toTopOf="@+id/tv_percent_num" />
+
+        <com.baha.reviewbar.ReviewBar
+            android:id="@+id/ratingBar"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:emptyIcon="@drawable/ic_star_empty_big"
+            app:fillIcon="@drawable/ic_star_full_big"
+            app:halfEnable="false"
+            app:iconSpace="5"
+            app:isIndicator="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_percent_num"
+            app:reviewScore="4.0"
+            app:reviewScoreMax="5" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="4.0"
+            android:textColor="@color/quala_g6"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+            app:layout_constraintStart_toEndOf="@+id/ratingBar"
+            app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar_1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="3"
+            android:progress="1"
+            android:progressBackgroundTint="@color/quala_g4"
+            android:progressTint="@color/quala_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="당도"
+            android:textColor="@color/quala_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar_1"
+            app:layout_constraintStart_toEndOf="@+id/progressBar_1"
+            app:layout_constraintTop_toTopOf="@+id/progressBar_1" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar_2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:max="3"
+            android:progress="2"
+            android:progressBackgroundTint="@color/quala_g4"
+            android:progressTint="@color/quala_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar_1"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="산도"
+            android:textColor="@color/quala_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar_2"
+            app:layout_constraintStart_toEndOf="@+id/progressBar_2"
+            app:layout_constraintTop_toTopOf="@+id/progressBar_2" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar_3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:max="3"
+            android:progress="1"
+            android:progressBackgroundTint="@color/quala_g4"
+            android:progressTint="@color/quala_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar_2"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="고소함"
+            android:textColor="@color/quala_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar_3"
+            app:layout_constraintStart_toEndOf="@+id/progressBar_3"
+            app:layout_constraintTop_toTopOf="@+id/progressBar_3" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar_4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:max="3"
+            android:progress="3"
+            android:progressBackgroundTint="@color/quala_g4"
+            android:progressTint="@color/quala_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar_3"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="바디감"
+            android:textColor="@color/quala_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar_4"
+            app:layout_constraintStart_toEndOf="@+id/progressBar_4"
+            app:layout_constraintTop_toTopOf="@+id/progressBar_4" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar_5"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:max="3"
+            android:progress="1"
+            android:progressBackgroundTint="@color/quala_g4"
+            android:progressTint="@color/quala_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar_4"
+            app:trackCornerRadius="10dp"
+            app:trackThickness="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:text="도수"
+            android:textColor="@color/quala_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar_5"
+            app:layout_constraintStart_toEndOf="@+id/progressBar_5"
+            app:layout_constraintTop_toTopOf="@+id/progressBar_5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/quala_g2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <FrameLayout
+        android:id="@+id/view_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <CheckedTextView
+                    android:id="@+id/iv_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkMark="@drawable/selector_like"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/appCompatButton" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="320"
+                    android:textColor="@color/quala_b2"
+                    android:textSize="9sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/appCompatButton"
+                android:layout_width="267dp"
+                android:layout_height="43dp"
+                android:background="@drawable/solid_button_green"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:outlineProvider="none"
+                android:text="리뷰 작성하기"
+                android:textColor="@color/quala_white"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_like"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
