@@ -104,11 +104,11 @@
 
         <com.baha.reviewbar.ReviewBar
             android:id="@+id/ratingBar"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            app:emptyIcon="@drawable/ic_star_empty_big"
-            app:fillIcon="@drawable/ic_star_full_big"
+            app:emptyIcon="@drawable/ic_star_empty_medium"
+            app:fillIcon="@drawable/ic_star_full_medium"
             app:halfEnable="false"
             app:iconSpace="5"
             app:isIndicator="true"
@@ -269,7 +269,175 @@
         android:background="@color/quala_g2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_bottom_sheet"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <LinearLayout
+            android:id="@+id/linear_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="27dp">
+
+            <TextView
+                android:id="@+id/tv_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="소개"
+                android:textColor="@color/quala_b1"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다."
+                android:textColor="@color/quala_b1"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="원료"
+                android:textColor="@color/quala_b1"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을"
+                android:textColor="@color/quala_b1"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_title_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="이런 상황에 어울려요"
+                android:textColor="@color/quala_b1"
+                android:textSize="13sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="퇴근 후 혼자"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textSize="10sp"
+                    android:textColor="@color/quala_green"
+                    android:clickable="false"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/quala_green"
+                    app:chipBackgroundColor="@color/quala_white"
+                    app:textEndPadding="0dp"
+                    app:textStartPadding="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="홈 파티"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textSize="10sp"
+                    android:textColor="@color/quala_green"
+                    android:clickable="false"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/quala_green"
+                    app:chipBackgroundColor="@color/quala_white"
+                    app:textEndPadding="0dp"
+                    app:textStartPadding="0dp" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tv_title_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="이런 안주가 어울려요"
+                android:textColor="@color/quala_b1"
+                android:textSize="13sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="건어물"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textSize="10sp"
+                    android:textColor="@color/quala_green"
+                    android:clickable="false"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/quala_green"
+                    app:chipBackgroundColor="@color/quala_white"
+                    app:textEndPadding="0dp"
+                    app:textStartPadding="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="튀김류"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textSize="10sp"
+                    android:textColor="@color/quala_green"
+                    android:clickable="false"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/quala_green"
+                    app:chipBackgroundColor="@color/quala_white"
+                    app:textEndPadding="0dp"
+                    app:textStartPadding="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="양념 고기"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textSize="10sp"
+                    android:textColor="@color/quala_green"
+                    android:clickable="false"
+                    app:chipEndPadding="10dp"
+                    app:chipStartPadding="10dp"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/quala_green"
+                    app:chipBackgroundColor="@color/quala_white"
+                    app:textEndPadding="0dp"
+                    app:textStartPadding="0dp" />
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+   <FrameLayout
         android:id="@+id/view_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -320,7 +488,7 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/appCompatButton"
+                android:id="@+id/btn_review"
                 android:layout_width="267dp"
                 android:layout_height="43dp"
                 android:background="@drawable/solid_button_green"

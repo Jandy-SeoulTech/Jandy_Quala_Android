@@ -7,16 +7,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.quala.R
-import com.example.quala.databinding.ActivityAlcoholDetailBinding
+import com.example.quala.databinding.ActivityWriteReviewBinding
 
-class AlcoholDetailActivity : AppCompatActivity() {
+class WriteReviewActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityAlcoholDetailBinding
-    private var reviewBottomSheet: FragmentReviewBottomSheet? = null
+    lateinit var binding: ActivityWriteReviewBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAlcoholDetailBinding.inflate(layoutInflater)
+        binding = ActivityWriteReviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -25,20 +24,16 @@ class AlcoholDetailActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.back_temp)
 
         binding.apply {
-            ivLike.setOnClickListener {
-                ivLike.toggle()
-            }
-            btnReview.setOnClickListener {
-                val intent = Intent(this@AlcoholDetailActivity, WriteReviewActivity::class.java)
-                this@AlcoholDetailActivity.startActivity(intent)
+            btnComplete.setOnClickListener {
+                val intent = Intent(this@WriteReviewActivity, AlcoholDetailActivity::class.java)
+                this@WriteReviewActivity.startActivity(intent)
+                finish()
             }
         }
-
-//        reviewBottomSheet = FragmentReviewBottomSheet.show(supportFragmentManager, R.id.view_bottom_sheet)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_detail, menu)
+        menuInflater.inflate(R.menu.toolbar_review, menu)
         return true
     }
 
@@ -47,9 +42,6 @@ class AlcoholDetailActivity : AppCompatActivity() {
             android.R.id.home -> {
                 finish()
                 super.onOptionsItemSelected(item)
-            }
-            R.id.alarm -> {
-                Toast.makeText(this, "알람 버튼 클릭", Toast.LENGTH_SHORT).show()
             }
         }
         return super.onOptionsItemSelected(item)
