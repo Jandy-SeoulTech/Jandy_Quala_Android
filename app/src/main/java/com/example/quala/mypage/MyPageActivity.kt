@@ -1,18 +1,25 @@
 package com.example.quala.mypage
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.quala.R
 import com.example.quala.databinding.ActivityMyPageBinding
 import com.example.quala.home.MainActivity
 import com.example.quala.introduce.IntroduceActivity
 import com.example.quala.recommend.RecommendActivity
+import com.github.mikephil.charting.data.RadarData
+import com.github.mikephil.charting.data.RadarDataSet
+import com.github.mikephil.charting.data.RadarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.google.android.material.navigation.NavigationView
+
 
 class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -29,6 +36,93 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_temp)
 
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        binding.mypageLayout.apply {
+            ivChangeProfile.setOnClickListener {
+                //TODO: 프로필 변경 페이지로 이동
+            }
+            groupReview.setOnClickListener {
+                //TODO: 리뷰 관리 페이지로 이동
+            }
+            groupDdibs.setOnClickListener {
+                //TODO: 찜 관리 페이지로 이동
+            }
+            cvNotice.setOnClickListener {
+                //TODO: 공지사항 페이지로 이동
+            }
+            cvQuestion.setOnClickListener {
+                //TODO: 1:1 문의 페이지로 이동
+            }
+            cvPolicy.setOnClickListener {
+                //TODO: 약관 및 정책 페이지로 이동
+            }
+        }
+
+        setRadarGraph()
+    }
+
+    private fun setRadarGraph() {
+        // 그래프 배경을 위한 데이터
+        val full: ArrayList<RadarEntry> = ArrayList()
+        full.add(RadarEntry(3F))
+        full.add(RadarEntry(3F))
+        full.add(RadarEntry(3F))
+        full.add(RadarEntry(3F))
+        full.add(RadarEntry(3F))
+
+        // 실제 값이 들어갈 데이터
+        val scores: ArrayList<RadarEntry> = ArrayList()
+        scores.add(RadarEntry(3F))
+        scores.add(RadarEntry(2F))
+        scores.add(RadarEntry(3F))
+        scores.add(RadarEntry(1F))
+        scores.add(RadarEntry(2F))
+
+        val radarData = RadarData()
+        val radarFullSet = RadarDataSet(full, "full")
+        val radarDataSet = RadarDataSet(scores, "scores")
+        val labels = arrayOf("당도", "산도", "고소함", "바디감", "도수")
+
+        radarFullSet.color = Color.rgb(0, 56, 40)
+        radarFullSet.fillColor = Color.rgb(0, 56, 40)
+        radarFullSet.setDrawFilled(true)
+        radarFullSet.fillAlpha = 230
+        radarFullSet.valueFormatter = MyFormatter()
+
+        radarDataSet.color = Color.rgb(158, 164, 170)
+        radarDataSet.fillColor = Color.rgb(158, 164, 170)
+        radarDataSet.setDrawFilled(true)
+        radarDataSet.fillAlpha = 100
+        radarDataSet.lineWidth = 1f
+        radarDataSet.valueFormatter = MyFormatter()
+
+        radarData.addDataSet(radarFullSet)
+        radarData.addDataSet(radarDataSet)
+
+        binding.mypageLayout.radarChart.apply {
+            // 차트 안쪽 선 색상 설정
+            webColor = Color.rgb(100, 100, 100)
+            webColorInner = Color.rgb(100, 100, 100)
+            webLineWidth = 1f
+            webLineWidthInner = 1f
+
+            // 데이터와 라벨 설정
+            data = radarData
+            xAxis.valueFormatter = IndexAxisValueFormatter(labels)
+
+            // 그래프 값 범위 설정
+            yAxis.axisMinimum = 0f
+            yAxis.axisMaximum = 3f
+            yAxis.setLabelCount(4, true)
+
+            // 회전 방지
+            isRotationEnabled = false
+
+            // 필요 없는거 안보이게 설정
+            legend.isEnabled = false
+            description.isEnabled = false
+            yAxis.setDrawLabels(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -69,5 +163,12 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             }
         }
         return false
+    }
+}
+
+// 그래프에 각 데이터의 값이 안보이게 하도록 하기 위한 클래스
+class MyFormatter : ValueFormatter() {
+    override fun getFormattedValue(value: Float): String {
+        return ""
     }
 }
