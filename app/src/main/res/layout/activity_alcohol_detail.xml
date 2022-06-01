@@ -437,7 +437,7 @@
 
     </androidx.core.widget.NestedScrollView>
 
-   <FrameLayout
+    <FrameLayout
         android:id="@+id/view_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

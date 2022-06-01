@@ -69,11 +69,110 @@
         <LinearLayout
             android:id="@+id/linear_filter"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
+            android:paddingHorizontal="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line1"
             android:orientation="horizontal">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_price_not_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가격"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_g4"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_price_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가격"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                android:visibility="gone"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_green"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_percent_not_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="도수"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_g4"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_percent_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="도수"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                android:visibility="gone"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_green"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_mood_not_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="분위기"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_g4"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_mood_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="분위기"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="10sp"
+                android:textColor="@color/quala_g4"
+                android:visibility="gone"
+                app:textStartPadding="14dp"
+                app:textEndPadding="14dp"
+                app:chipBackgroundColor="@color/white"
+                app:chipStrokeWidth="1dp"
+                app:chipStrokeColor="@color/quala_green"
+                style="@style/Widget.MaterialComponents.Chip.Entry"/>
+
         </LinearLayout>
 
         <View
