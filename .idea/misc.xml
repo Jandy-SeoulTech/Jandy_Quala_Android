@@ -5,8 +5,10 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.40260416666666665" />
         <entry key="app/src/main/res/drawable/ic_change_info.xml" value="0.3485" />
+        <entry key="app/src/main/res/drawable/ic_change_nickname_temp.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_ddibs.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
+        <entry key="app/src/main/res/drawable/ic_nv_introduce.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_sort_temp.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/ic_star_full.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/selector_like.xml" value="0.288" />
@@ -18,7 +20,9 @@
         <entry key="app/src/main/res/layout/activity_alcohol_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_introduce.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_my_info_change.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_my_review.xml" value="0.327445652173913" />
         <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_write_review.xml" value="0.33" />
         <entry key="app/src/main/res/layout/custom_tab_button.xml" value="1.25" />
@@ -39,10 +43,12 @@
         <entry key="app/src/main/res/layout/layout_review_collapse.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_review_expand.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/recycler_alcohol.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/recycler_my_review.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_reco_item.xml" value="1.0" />
         <entry key="app/src/main/res/menu/drawer_navigation.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_home.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_info_change.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_introduce.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_mypage.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_recommend.xml" value="0.37604166666666666" />

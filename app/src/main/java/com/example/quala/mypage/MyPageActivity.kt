@@ -39,10 +39,12 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         binding.mypageLayout.apply {
             ivChangeProfile.setOnClickListener {
-                //TODO: 프로필 변경 페이지로 이동
+                val intent = Intent(this@MyPageActivity, MyInfoChangeActivity::class.java)
+                this@MyPageActivity.startActivity(intent)
             }
             groupReview.setOnClickListener {
-                //TODO: 리뷰 관리 페이지로 이동
+                val intent = Intent(this@MyPageActivity, MyReviewActivity::class.java)
+                this@MyPageActivity.startActivity(intent)
             }
             groupDdibs.setOnClickListener {
                 //TODO: 찜 관리 페이지로 이동
@@ -115,8 +117,9 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             yAxis.axisMaximum = 3f
             yAxis.setLabelCount(4, true)
 
-            // 회전 방지
+            // 회전, 터치 방지
             isRotationEnabled = false
+            setTouchEnabled(false)
 
             // 필요 없는거 안보이게 설정
             legend.isEnabled = false
