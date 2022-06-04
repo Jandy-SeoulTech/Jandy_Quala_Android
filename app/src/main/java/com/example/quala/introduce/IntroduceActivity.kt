@@ -48,6 +48,18 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
     }
 
+    private fun setViewPagerAndTabLayout() {
+        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+        tabTitle = listOf("탁주", "과일주", "증류주", "기타")
+
+        binding.introduceLayout.apply {
+            viewPager.adapter = viewPagerFragmentAdapter
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = tabTitle[position]
+            }.attach()
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_introduce, menu)
         return true
@@ -88,15 +100,11 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         return false
     }
 
-    private fun setViewPagerAndTabLayout() {
-        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
-        tabTitle = listOf("탁주", "과일주", "증류주", "기타")
-
-        binding.introduceLayout.apply {
-            viewPager.adapter = viewPagerFragmentAdapter
-            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                tab.text = tabTitle[position]
-            }.attach()
+    override fun onBackPressed() {
+        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            binding.drawerLayout.closeDrawers()
+        }else{
+            super.onBackPressed()
         }
     }
 }

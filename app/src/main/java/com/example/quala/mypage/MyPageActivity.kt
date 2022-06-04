@@ -167,6 +167,14 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         }
         return false
     }
+
+    override fun onBackPressed() {
+        if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
+            binding.drawerLayout.closeDrawers()
+        }else{
+            super.onBackPressed()
+        }
+    }
 }
 
 // 그래프에 각 데이터의 값이 안보이게 하도록 하기 위한 클래스
