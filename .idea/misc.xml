@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.40260416666666665" />
+        <entry key="app/src/main/res/drawable/carousel_background.xml" value="0.1485" />
         <entry key="app/src/main/res/drawable/ic_change_info.xml" value="0.3485" />
         <entry key="app/src/main/res/drawable/ic_change_nickname_temp.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_ddibs.xml" value="0.288" />
@@ -36,13 +37,14 @@
         <entry key="app/src/main/res/layout/fragment_review_bottom_sheet.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_drawer_header.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_introduce.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/layout_main.xml" value="0.3834306956983537" />
-        <entry key="app/src/main/res/layout/layout_main_carousel.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/layout_main.xml" value="0.3582286847323199" />
+        <entry key="app/src/main/res/layout/layout_main_carousel.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_my_page.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_recommend.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_review_collapse.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_review_expand.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/recycler_alcohol.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/recycler_carousel_item.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/recycler_my_review.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_reco_item.xml" value="1.0" />
         <entry key="app/src/main/res/menu/drawer_navigation.xml" value="0.37604166666666666" />

@@ -35,26 +35,63 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!--carousel view-->
-        <include
-            android:id="@+id/carousel_layout"
-            layout="@layout/layout_main_carousel"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="불타는 금요일에"
+            android:textColor="@color/quala_green"
+            android:textSize="33sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_layout" />
+
+        <TextView
+            android:id="@+id/tv_suggestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:layout_marginTop="7dp"
+            android:text="이런 술은 어때요?"
+            android:textColor="@color/quala_b1"
+            android:textSize="33sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_day"
+            app:layout_constraintTop_toBottomOf="@+id/tv_day" />
+
+        <View
+            android:id="@+id/view_carousel_background"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_marginBottom="-10dp"
+            android:background="@drawable/carousel_background"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_carousel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+            android:id="@+id/rv_carousel"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_suggestion" />
 
         <TextView
             android:id="@+id/tv_title_1_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="58dp"
             android:layout_marginLeft="27dp"
-            android:text="최강술꾼"
+            android:layout_marginTop="58dp"
             android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="최강술꾼"
             android:textColor="@color/quala_green"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carousel_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/view_carousel_background" />
 
         <TextView
             android:id="@+id/tv_title_1_sub"

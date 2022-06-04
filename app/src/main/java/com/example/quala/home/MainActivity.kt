@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var carouselAdapter: CarouselAdapter
     lateinit var adapter: RecoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,23 +32,37 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navigationView.setNavigationItemSelectedListener(this)
 
+        // 상단 carousel의 데이터 세팅
+        val carouselData = ArrayList<CarouselData>()
+        for (i in 1..7){
+            carouselData.add(CarouselData(R.drawable.item_temp, "고흥 유자주"))
+        }
+        carouselAdapter = CarouselAdapter(carouselData)
+
+        // 하단 3칸의 데이터 세팅
         val datas = mutableListOf<RecoData>()
         for (i in 1..10){
             datas.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
         }
-
         adapter = RecoAdapter(datas)
 
         binding.apply {
-            mainLayout.rvRecommend1.adapter = adapter
-            mainLayout.rvRecommend2.adapter = adapter
-            mainLayout.rvRecommend3.adapter = adapter
+            mainLayout.apply {
+                rvCarousel.adapter = carouselAdapter
+                rvCarousel.setAlpha(true)
+                rvCarousel.setIntervalRatio(0.5f)
 
-            mainLayout.btnTest.setOnClickListener {
-                val intent = Intent(this@MainActivity, RecommendActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                startActivity(intent)
+                rvRecommend1.adapter = adapter
+                rvRecommend2.adapter = adapter
+                rvRecommend3.adapter = adapter
+
+                btnTest.setOnClickListener {
+                    val intent = Intent(this@MainActivity, RecommendActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
+                }
             }
+
         }
     }
 
