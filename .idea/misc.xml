@@ -25,6 +25,8 @@
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_my_review.xml" value="0.327445652173913" />
         <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_write_review.xml" value="0.33" />
         <entry key="app/src/main/res/layout/custom_tab_button.xml" value="1.25" />
         <entry key="app/src/main/res/layout/fragment_alcohol_four.xml" value="0.3509963768115942" />
@@ -34,6 +36,16 @@
         <entry key="app/src/main/res/layout/fragment_alcohol_two.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/fragment_detail_info.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/fragment_item_sort_bottom_sheet.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/fragment_question_1.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_question_2.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_question_3.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_question_4.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_question_5.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_question_6.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_question_7.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_question_8.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/fragment_question_six.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/fragment_question_twi.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_review_bottom_sheet.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_drawer_header.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/layout_introduce.xml" value="0.33" />
@@ -53,8 +65,10 @@
         <entry key="app/src/main/res/menu/toolbar_info_change.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_introduce.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_mypage.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_mypage_depth.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/toolbar_recommend.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_review.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/toolbar_test.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>

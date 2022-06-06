@@ -43,6 +43,7 @@ dependencies {
     implementation 'kr.co.prnd:persistBottomSheetFragment:1.0.0' // extand bottomsheet
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // radar chart
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5' // carousel
+    implementation 'com.github.warkiz.tickseekbar:tickseekbar:0.1.4' // tickseekbar
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.core:core-ktx:1.7.0'

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quala">
         <activity
+            android:name=".recommend.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recommend.TestActivity"
+            android:exported="false" />
+        <activity
             android:name=".mypage.MyReviewActivity"
             android:exported="false" />
         <activity
