@@ -39,6 +39,8 @@ android {
 
 dependencies {
 
+    implementation "com.kakao.sdk:v2-user:2.10.0" // 카카오 로그인
+
     implementation 'tw.com.oneup.www:reviewbar:1.0.2' // ratingbar
     implementation 'kr.co.prnd:persistBottomSheetFragment:1.0.0' // extand bottomsheet
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // radar chart
