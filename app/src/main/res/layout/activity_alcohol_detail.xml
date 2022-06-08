@@ -269,181 +269,34 @@
         android:background="@color/quala_g2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/view_bottom_sheet"
-        app:layout_constraintTop_toBottomOf="@+id/view">
-
-        <LinearLayout
-            android:id="@+id/linear_introduce"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingHorizontal="27dp">
-
-            <TextView
-                android:id="@+id/tv_title_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="소개"
-                android:textColor="@color/quala_b1"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tv_des_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:text="모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 정기회의 회기는 100일을, 임시회의 회기는 30일을 초과할 수 없다."
-                android:textColor="@color/quala_b1"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/tv_title_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="원료"
-                android:textColor="@color/quala_b1"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tv_des_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:text="모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을"
-                android:textColor="@color/quala_b1"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/tv_title_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="이런 상황에 어울려요"
-                android:textColor="@color/quala_b1"
-                android:textSize="13sp" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="퇴근 후 혼자"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textSize="10sp"
-                    android:textColor="@color/quala_green"
-                    android:clickable="false"
-                    app:chipEndPadding="10dp"
-                    app:chipStartPadding="10dp"
-                    app:chipStrokeWidth="1dp"
-                    app:chipStrokeColor="@color/quala_green"
-                    app:chipBackgroundColor="@color/quala_white"
-                    app:textEndPadding="0dp"
-                    app:textStartPadding="0dp" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="홈 파티"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textSize="10sp"
-                    android:textColor="@color/quala_green"
-                    android:clickable="false"
-                    app:chipEndPadding="10dp"
-                    app:chipStartPadding="10dp"
-                    app:chipStrokeWidth="1dp"
-                    app:chipStrokeColor="@color/quala_green"
-                    app:chipBackgroundColor="@color/quala_white"
-                    app:textEndPadding="0dp"
-                    app:textStartPadding="0dp" />
-            </com.google.android.material.chip.ChipGroup>
-
-            <TextView
-                android:id="@+id/tv_title_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="이런 안주가 어울려요"
-                android:textColor="@color/quala_b1"
-                android:textSize="13sp" />
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="건어물"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textSize="10sp"
-                    android:textColor="@color/quala_green"
-                    android:clickable="false"
-                    app:chipEndPadding="10dp"
-                    app:chipStartPadding="10dp"
-                    app:chipStrokeWidth="1dp"
-                    app:chipStrokeColor="@color/quala_green"
-                    app:chipBackgroundColor="@color/quala_white"
-                    app:textEndPadding="0dp"
-                    app:textStartPadding="0dp" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="튀김류"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textSize="10sp"
-                    android:textColor="@color/quala_green"
-                    android:clickable="false"
-                    app:chipEndPadding="10dp"
-                    app:chipStartPadding="10dp"
-                    app:chipStrokeWidth="1dp"
-                    app:chipStrokeColor="@color/quala_green"
-                    app:chipBackgroundColor="@color/quala_white"
-                    app:textEndPadding="0dp"
-                    app:textStartPadding="0dp" />
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="양념 고기"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textSize="10sp"
-                    android:textColor="@color/quala_green"
-                    android:clickable="false"
-                    app:chipEndPadding="10dp"
-                    app:chipStartPadding="10dp"
-                    app:chipStrokeWidth="1dp"
-                    app:chipStrokeColor="@color/quala_green"
-                    app:chipBackgroundColor="@color/quala_white"
-                    app:textEndPadding="0dp"
-                    app:textStartPadding="0dp" />
-            </com.google.android.material.chip.ChipGroup>
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <FrameLayout
-        android:id="@+id/view_bottom_sheet"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIndicatorGravity="top"
+        app:tabTextAppearance="@style/detailTabText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"

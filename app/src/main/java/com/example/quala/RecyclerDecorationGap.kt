@@ -1,4 +1,4 @@
-package com.example.quala.mypage
+package com.example.quala
 
 import android.graphics.Rect
 import android.view.View

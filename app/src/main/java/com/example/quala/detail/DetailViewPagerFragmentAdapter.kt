@@ -1,13 +1,13 @@
-package com.example.quala.introduce
+package com.example.quala.detail
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ViewPagerFragmentAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
+class DetailViewPagerFragmentAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
 
     // ViewPager에 연결할 fragment 생성
-    val fragmentList = listOf<Fragment>(FragmentAlcoholOne(), FragmentAlcoholTwo(), FragmentAlcoholThree(), FragmentAlcoholFour())
+    val fragmentList = listOf<Fragment>(FragmentAlcoholDescription(), FragmentReviewList())
 
     // ViewPager에 연결할 fragment의 갯수 리턴
     override fun getItemCount(): Int {

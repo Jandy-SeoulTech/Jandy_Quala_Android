@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.quala.R
@@ -18,7 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityIntroduceBinding
-    lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
+    lateinit var viewPagerFragmentAdapter: IntroduceViewPagerFragmentAdapter
     lateinit var tabTitle: List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +48,7 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun setViewPagerAndTabLayout() {
-        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+        viewPagerFragmentAdapter = IntroduceViewPagerFragmentAdapter(this)
         tabTitle = listOf("탁주", "과일주", "증류주", "기타")
 
         binding.introduceLayout.apply {

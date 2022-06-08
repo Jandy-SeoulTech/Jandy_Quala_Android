@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quala.R
+import com.example.quala.RecyclerDecorationGap
 import com.example.quala.databinding.ActivityMyReviewBinding
 
 class MyReviewActivity : AppCompatActivity() {

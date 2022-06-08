@@ -40,4 +40,10 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
+
+    <!-- Tablayout 폰트 설정-->
+    <style name="detailTabText" parent="TextAppearance.Design.Tab">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>
