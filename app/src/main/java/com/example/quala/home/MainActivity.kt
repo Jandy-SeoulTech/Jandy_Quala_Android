@@ -76,9 +76,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             android.R.id.home -> {
                 binding.drawerLayout.openDrawer(GravityCompat.START)
             }
-            R.id.alarm -> {
-                Toast.makeText(this, "알람 버튼 클릭", Toast.LENGTH_SHORT).show()
-            }
         }
         return super.onOptionsItemSelected(item)
     }

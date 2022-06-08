@@ -34,9 +34,6 @@ class MyInfoChangeActivity : AppCompatActivity() {
                 finish()
                 super.onOptionsItemSelected(item)
             }
-            R.id.alarm -> {
-                Toast.makeText(this, "알람 버튼 클릭", Toast.LENGTH_SHORT).show()
-            }
         }
         return super.onOptionsItemSelected(item)
     }
