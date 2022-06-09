@@ -13,14 +13,19 @@
         <entry key="app/src/main/res/drawable/ic_close_chip.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/ic_ddibs.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/ic_kakao_logo.xml" value="0.368" />
+        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.338" />
+        <entry key="app/src/main/res/drawable/ic_no_ddibs.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/ic_nv_introduce.xml" value="0.313" />
+        <entry key="app/src/main/res/drawable/ic_nv_introduce_.xml" value="0.338" />
+        <entry key="app/src/main/res/drawable/ic_nv_mypage.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/ic_sort_temp.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/ic_star_empty_big.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/ic_star_empty_medium.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/ic_star_full.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/ic_star_full_big.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/selector_chip_state.xml" value="0.3375" />
+        <entry key="app/src/main/res/drawable/selector_drawer.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/selector_like.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/selector_test_tsb.xml" value="0.338" />
         <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
@@ -33,8 +38,8 @@
         <entry key="app/src/main/res/layout/activity_alcohol_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.3740942028985507" />
         <entry key="app/src/main/res/layout/activity_introduce.xml" value="0.3509963768115942" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3509963768115942" />
-        <entry key="app/src/main/res/layout/activity_my_info_change.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12790697674418605" />
+        <entry key="app/src/main/res/layout/activity_my_info_change.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_my_review.xml" value="0.327445652173913" />
         <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />

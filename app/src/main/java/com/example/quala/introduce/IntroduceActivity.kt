@@ -29,7 +29,7 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         setSupportActionBar(binding.introduceLayout.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_temp)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
         binding.navigationView.setNavigationItemSelectedListener(this)
 

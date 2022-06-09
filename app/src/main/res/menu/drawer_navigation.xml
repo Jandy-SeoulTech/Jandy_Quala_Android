@@ -4,7 +4,7 @@
         android:icon = "@drawable/ic_nv_home"
         android:title = "홈" />
     <item android:id = "@+id/introduce"
-        android:icon = "@drawable/nv_introduce"
+        android:icon = "@drawable/ic_nv_introduce"
         android:title = "술 소개" />
     <item android:id = "@+id/recommend"
         android:icon = "@drawable/ic_nv_recommend"

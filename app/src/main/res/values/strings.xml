@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quala</string>
+    <string name="app_name">콸라</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="star">M19.467,23.316 L12,17.828 4.533,23.316 7.4,14.453 -0.063,9H9.151L12,0.122 14.849,9h9.213L16.6,14.453Z</string>
