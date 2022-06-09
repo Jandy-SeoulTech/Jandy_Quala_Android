@@ -32,16 +32,13 @@ android {
     viewBinding {
         enabled = true
     }
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
 
     implementation "com.kakao.sdk:v2-user:2.10.0" // 카카오 로그인
 
-    implementation 'tw.com.oneup.www:reviewbar:1.0.2' // ratingbar
+    implementation 'com.github.DuShuYuan:CBRatingBar:3.1.1' // ratingbar
     implementation 'kr.co.prnd:persistBottomSheetFragment:1.0.0' // extand bottomsheet
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // radar chart
     implementation 'com.github.sparrow007:carouselrecyclerview:1.2.5' // carousel

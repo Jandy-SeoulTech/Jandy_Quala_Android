@@ -37,7 +37,7 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         binding.introduceLayout.apply {
             //TODO: 서버 연동 후 실제 갯수로 적용
-            filterCnt = "총 " + "30" + "개"
+            tvCnt.text = "총 " + "30" + "개"
 
             linearSortBtn.setOnClickListener {
                 FragmentItemSortBottomSheet.newInstance().show(

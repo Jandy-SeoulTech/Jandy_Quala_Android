@@ -11,7 +11,10 @@
         <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/ic_nv_introduce.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_sort_temp.xml" value="0.3765" />
+        <entry key="app/src/main/res/drawable/ic_star_empty_big.xml" value="0.3765" />
+        <entry key="app/src/main/res/drawable/ic_star_empty_medium.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/ic_star_full.xml" value="0.288" />
+        <entry key="app/src/main/res/drawable/ic_star_full_big.xml" value="0.3765" />
         <entry key="app/src/main/res/drawable/selector_like.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/solid_button_grey.xml" value="0.3355" />

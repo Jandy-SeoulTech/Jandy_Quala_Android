@@ -78,19 +78,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
 
-    <com.baha.reviewbar.ReviewBar
+    <com.cb.ratingbar.CBRatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:emptyIcon="@drawable/ic_star_empty_big"
-        app:fillIcon="@drawable/ic_star_full_big"
-        app:halfEnable="false"
-        app:iconSpace="20"
+        app:starCount="5"
+        app:starMaxProgress="5"
+        app:starCanTouch="true"
+        app:starSize="38dp"
+        app:starSpace="10dp"
+        app:starPathDataId="@string/star"
+        app:starStrokeColor="@color/transparent"
+        app:starFillColor="@color/quala_g2"
+        app:starStartColor="@color/quala_red"
+        app:starEndColor="@color/quala_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_review"
-        app:reviewScoreMax="5" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_review" />
 
     <View
         android:id="@+id/line2"

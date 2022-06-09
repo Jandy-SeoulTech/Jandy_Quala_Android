@@ -21,7 +21,7 @@ class MyReviewAdapter(val reviewData: List<MyReview>): RecyclerView.Adapter<Recy
         val binding = (holder as MyReviewViewHolder).binding
         binding.apply {
             tvName.text = reviewData[position].name
-            ratingBar.setReviewScore(reviewData[position].score)
+            ratingBar.starProgress = reviewData[position].score
             tvDate.text = reviewData[position].dateBefore
             tvReview.text = reviewData[position].review
         }

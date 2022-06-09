@@ -32,7 +32,7 @@ class AlcoholAdapter(val alcoholData: List<Alcohol>): RecyclerView.Adapter<Recyc
             tvName.text = alcoholData[position].name
             tvPercentNum.text = alcoholData[position].percent.toString()
             tvVolumeNum.text = alcoholData[position].volume.toString()
-            ratingBar.setReviewScore(alcoholData[position].score)
+            ratingBar.starProgress = alcoholData[position].score
             tvRating.text = alcoholData[position].score.toString()
             tvDescription.text = alcoholData[position].description
         }

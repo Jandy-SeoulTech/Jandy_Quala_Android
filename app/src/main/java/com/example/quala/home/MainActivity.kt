@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             mainLayout.apply {
                 rvCarousel.adapter = carouselAdapter
                 rvCarousel.setAlpha(true)
-                rvCarousel.setIntervalRatio(0.5f)
+                rvCarousel.setIntervalRatio(0.55f)
 
                 rvRecommend1.adapter = adapter
                 rvRecommend2.adapter = adapter

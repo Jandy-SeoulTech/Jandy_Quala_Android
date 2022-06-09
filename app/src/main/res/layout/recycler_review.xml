@@ -33,16 +33,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical">
-                <com.baha.reviewbar.ReviewBar
+                <com.cb.ratingbar.CBRatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:emptyIcon="@drawable/ic_star_empty_small"
-                    app:fillIcon="@drawable/ic_star_full_small"
-                    app:halfEnable="false"
-                    app:iconSpace="5"
-                    app:isIndicator="true"
-                    app:reviewScoreMax="5" />
+                    app:starCount="5"
+                    app:starMaxProgress="5"
+                    app:starCanTouch="false"
+                    app:starSize="10dp"
+                    app:starSpace="2dp"
+                    app:starPathDataId="@string/star"
+                    app:starStrokeColor="@color/transparent"
+                    app:starFillColor="@color/quala_g2"
+                    app:starStartColor="@color/quala_red"
+                    app:starEndColor="@color/quala_red" />
 
                 <TextView
                     android:id="@+id/tv_rating"

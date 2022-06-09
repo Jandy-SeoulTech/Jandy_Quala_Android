@@ -23,7 +23,7 @@ class ReviewAdapter(val reviewData: List<Review>): RecyclerView.Adapter<Recycler
 
         binding.apply {
             ivProfile.setImageResource(reviewData[position].profile)
-            ratingBar.setReviewScore(reviewData[position].score)
+            ratingBar.starProgress = reviewData[position].score
             tvRating.text = reviewData[position].score.toString()
             tvNickname.text = reviewData[position].name
             tvDate.text = reviewData[position].date

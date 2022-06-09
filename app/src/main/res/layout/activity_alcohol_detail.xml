@@ -102,20 +102,24 @@
             app:layout_constraintStart_toEndOf="@+id/tv_volume_num"
             app:layout_constraintTop_toTopOf="@+id/tv_percent_num" />
 
-        <com.baha.reviewbar.ReviewBar
+        <com.cb.ratingbar.CBRatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            app:emptyIcon="@drawable/ic_star_empty_medium"
-            app:fillIcon="@drawable/ic_star_full_medium"
-            app:halfEnable="false"
-            app:iconSpace="5"
-            app:isIndicator="true"
+            app:starCount="5"
+            app:starMaxProgress="5"
+            app:starProgress="4.0"
+            app:starCanTouch="false"
+            app:starSize="15dp"
+            app:starSpace="4dp"
+            app:starPathDataId="@string/star"
+            app:starStrokeColor="@color/transparent"
+            app:starFillColor="@color/quala_g2"
+            app:starStartColor="@color/quala_red"
+            app:starEndColor="@color/quala_red"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_percent_num"
-            app:reviewScore="4.0"
-            app:reviewScoreMax="5" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_percent_num" />
 
         <TextView
             android:id="@+id/tv_rating"
@@ -312,33 +316,33 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:gravity="center"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical">-->
 
-                <CheckedTextView
-                    android:id="@+id/iv_like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checkMark="@drawable/selector_like"
-                    android:checked="false"
-                    app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/appCompatButton" />
+<!--                <CheckedTextView-->
+<!--                    android:id="@+id/iv_like"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:checkMark="@drawable/selector_like"-->
+<!--                    android:checked="false"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/appCompatButton" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:text="320"
-                    android:textColor="@color/quala_b2"
-                    android:textSize="9sp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="2dp"-->
+<!--                    android:fontFamily="@font/noto_sans_kr_regular"-->
+<!--                    android:text="320"-->
+<!--                    android:textColor="@color/quala_b2"-->
+<!--                    android:textSize="9sp" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_review"

@@ -29,9 +29,9 @@ class AlcoholDetailActivity : AppCompatActivity() {
         setViewPagerAndTabLayout()
 
         binding.apply {
-            ivLike.setOnClickListener {
-                ivLike.toggle()
-            }
+//            ivLike.setOnClickListener {
+//                ivLike.toggle()
+//            }
             btnReview.setOnClickListener {
                 val intent = Intent(this@AlcoholDetailActivity, WriteReviewActivity::class.java)
                 this@AlcoholDetailActivity.startActivity(intent)
