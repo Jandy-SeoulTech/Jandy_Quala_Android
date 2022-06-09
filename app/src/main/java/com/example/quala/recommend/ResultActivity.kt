@@ -17,7 +17,7 @@ class ResultActivity : AppCompatActivity() {
     var acidity = 0
     var plain = 0
     var body = 0
-    var level = 0
+    var percent = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class ResultActivity : AppCompatActivity() {
         acidity = intent.getIntExtra("acidity", 0)
         plain = intent.getIntExtra("plain", 0)
         body = intent.getIntExtra("body", 0)
-        level = intent.getIntExtra("level", 0)
+        percent = intent.getIntExtra("percent", 0)
 
         setRadarGraph()
     }
@@ -48,7 +48,7 @@ class ResultActivity : AppCompatActivity() {
         scores.add(RadarEntry(acidity.toFloat()))
         scores.add(RadarEntry(plain.toFloat()))
         scores.add(RadarEntry(body.toFloat()))
-        scores.add(RadarEntry(level.toFloat()))
+        scores.add(RadarEntry(percent.toFloat()))
 
         val radarData = RadarData()
         val radarFullSet = RadarDataSet(full, "full")

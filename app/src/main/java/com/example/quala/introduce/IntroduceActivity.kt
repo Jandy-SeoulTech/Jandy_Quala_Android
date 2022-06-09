@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.quala.R
@@ -36,13 +37,37 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         setViewPagerAndTabLayout()
 
         binding.introduceLayout.apply {
-            //TODO: 서버 연동 후 실제 갯수로 적용
+            //TODO : 서버 연동 후 실제 갯수로 적용
             tvCnt.text = "총 " + "30" + "개"
 
             linearSortBtn.setOnClickListener {
                 FragmentItemSortBottomSheet.newInstance().show(
                     supportFragmentManager, FragmentItemSortBottomSheet.TAG
                 )
+            }
+
+            chipPercentNotSelected.setOnClickListener {
+                FragmentPercentFilterBottomSheet.newInstance().show(
+                    supportFragmentManager, FragmentPercentFilterBottomSheet.TAG
+                )
+            }
+
+            chipPercentSelected.setOnCloseIconClickListener {
+                chipPercentNotSelected.visibility = View.VISIBLE
+                chipPercentSelected.visibility = View.GONE
+                // TODO : filter 해제
+            }
+
+            chipMoodNotSelected.setOnClickListener {
+                FragmentMoodFilterBottomSheet.newInstance().show(
+                    supportFragmentManager, FragmentMoodFilterBottomSheet.TAG
+                )
+            }
+
+            chipMoodSelected.setOnCloseIconClickListener {
+                chipMoodNotSelected.visibility = View.VISIBLE
+                chipMoodSelected.visibility = View.GONE
+                // TODO : filter 해제
             }
         }
     }
@@ -74,6 +99,48 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 //                    tvSort.text = "좋아요 많은순"
 //                }
             }
+        }
+    }
+
+    fun filterPercent(percentList: ArrayList<String>) {
+        setPercentChip(percentList)
+        // TODO: 서버 통신 하면서 필터 적용
+    }
+
+    private fun setPercentChip(percentList: ArrayList<String>) {
+        var size = percentList.size
+
+        var chipText = if (size == 1) {
+            percentList[0]
+        } else {
+            "${percentList[0]} 외 ${size - 1}"
+        }
+
+        binding.introduceLayout.apply {
+            chipPercentNotSelected.visibility = View.GONE
+            chipPercentSelected.visibility = View.VISIBLE
+            chipPercentSelected.text = chipText
+        }
+    }
+
+    fun filterMood(moodList: ArrayList<String>) {
+        setMoodChip(moodList)
+        // TODO: 서버 통신 하면서 필터 적용
+    }
+
+    private fun setMoodChip(moodList: ArrayList<String>) {
+        var size = moodList.size
+
+        var chipText = if (size == 1) {
+            moodList[0]
+        } else {
+            "${moodList[0]} 외 ${size - 1}"
+        }
+
+        binding.introduceLayout.apply {
+            chipMoodNotSelected.visibility = View.GONE
+            chipMoodSelected.visibility = View.VISIBLE
+            chipMoodSelected.text = chipText
         }
     }
 

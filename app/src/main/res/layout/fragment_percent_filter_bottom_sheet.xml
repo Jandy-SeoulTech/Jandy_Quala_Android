@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".introduce.FragmentPercentFilterBottomSheet">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_bottomsheet_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="10dp"
+        android:text="도수"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textSize="14sp"
+        android:textColor="@color/quala_b1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/quala_g2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp">
+        <CheckBox
+            android:id="@+id/cb_0_to_5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="27dp"
+            android:background="@drawable/selector_checkbox"
+            android:button="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="0도 ~ 5도"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:textColor="@color/quala_b1"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="25dp">
+        <CheckBox
+            android:id="@+id/cb_5_to_10"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="27dp"
+            android:background="@drawable/selector_checkbox"
+            android:button="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="5도 ~ 10도"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:textColor="@color/quala_b1"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="25dp">
+        <CheckBox
+            android:id="@+id/cb_10_to"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="27dp"
+            android:background="@drawable/selector_checkbox"
+            android:button="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="10도 ~"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:textColor="@color/quala_b1"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_apply"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/solid_button_green"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:outlineProvider="none"
+        android:text="적용하기"
+        android:textColor="@color/quala_white"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_like"
+        app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>

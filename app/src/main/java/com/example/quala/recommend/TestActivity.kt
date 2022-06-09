@@ -20,7 +20,7 @@ class TestActivity : AppCompatActivity() {
     var acidity = 0
     var plain = 0
     var body = 0
-    var level = 0
+    var percent = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +54,9 @@ class TestActivity : AppCompatActivity() {
 
     fun lastQuestion(selected: String) {
         when(selected) {
-            "low" -> level = 1
-            "middle" -> level = 2
-            "high" -> level = 3
+            "low" -> percent = 1
+            "middle" -> percent = 2
+            "high" -> percent = 3
         }
 
         val intent = Intent(this, ResultActivity::class.java)
@@ -65,7 +65,7 @@ class TestActivity : AppCompatActivity() {
         intent.putExtra("acidity", acidity)
         intent.putExtra("plain", plain)
         intent.putExtra("body", body)
-        intent.putExtra("level", level)
+        intent.putExtra("percent", percent)
 
         this.startActivity(intent)
     }
