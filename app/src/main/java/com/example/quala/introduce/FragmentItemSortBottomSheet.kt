@@ -22,17 +22,20 @@ class FragmentItemSortBottomSheet : BottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentItemSortBottomSheetBinding.inflate(inflater, container, false)
 
-        binding.layoutReview.setOnClickListener {
-            // TODO: 리뷰 많은순 text 바꾸고, 정렬하는 함수 호출
-        }
-
         binding.layoutRating.setOnClickListener {
-            // TODO: 별점 높은순 text 바꾸고, 정렬하는 함수 호출
+            (activity as IntroduceActivity).sortItems("rating")
+            dismiss()
         }
 
-        binding.layoutLike.setOnClickListener {
-            // TODO: 좋아요 많은순 text 바꾸고, 정렬하는 함수 호출
+        binding.layoutReview.setOnClickListener {
+            (activity as IntroduceActivity).sortItems("reviewCnt")
+            dismiss()
         }
+
+//        binding.layoutLike.setOnClickListener {
+//            (activity as IntroduceActivity).sortItems("likeCnt")
+//            dismiss()
+//        }
 
         return binding.root
     }

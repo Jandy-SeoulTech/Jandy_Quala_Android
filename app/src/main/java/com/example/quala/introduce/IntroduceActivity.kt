@@ -59,6 +59,24 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
     }
 
+    fun sortItems(standard: String) {
+        binding.introduceLayout.apply {
+            when(standard) {
+                "reviewCnt" -> {
+                    tvSort.text = "리뷰 많은순"
+                    // TODO : 정렬 함수
+                }
+                "rating" -> {
+                    tvSort.text = "별점 높은순"
+                    // TODO : 정렬 함수
+                }
+//                "likeCnt" -> {
+//                    tvSort.text = "좋아요 많은순"
+//                }
+            }
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_introduce, menu)
         return true
