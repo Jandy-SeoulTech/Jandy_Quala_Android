@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_change_info.xml" value="0.3485" />
         <entry key="app/src/main/res/drawable/ic_change_nickname_temp.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_ddibs.xml" value="0.288" />
+        <entry key="app/src/main/res/drawable/ic_kakao_logo.xml" value="0.368" />
         <entry key="app/src/main/res/drawable/ic_nv_home.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/ic_nv_introduce.xml" value="0.313" />
         <entry key="app/src/main/res/drawable/ic_sort_temp.xml" value="0.3765" />
@@ -18,6 +19,8 @@
         <entry key="app/src/main/res/drawable/selector_like.xml" value="0.288" />
         <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/solid_button_grey.xml" value="0.3355" />
+        <entry key="app/src/main/res/drawable/solid_button_inactive.xml" value="0.2075" />
+        <entry key="app/src/main/res/drawable/solid_button_toggle.xml" value="0.2075" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.3355" />
         <entry key="app/src/main/res/font/font_family.xml" value="0.40625" />
         <entry key="app/src/main/res/layout-v28/layout_main_carousel.xml" value="0.3509963768115942" />
