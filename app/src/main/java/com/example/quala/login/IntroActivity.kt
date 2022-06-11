@@ -14,6 +14,7 @@ import com.kakao.sdk.user.UserApiClient
 class IntroActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityIntroBinding
+    var userId: Long? = 0
 
     private val callback : (OAuthToken?, Throwable?) -> Unit = { token, error ->
         // 에러가 난 경우
@@ -22,15 +23,12 @@ class IntroActivity : AppCompatActivity() {
         }
         // 토근이 발급된 경우
         else if (token != null) {
-            Log.d("[Quala] login", "로그인 성공\naccessToken : ${token.accessToken}\n" +
-                    "refreshToken : ${token.refreshToken}\n")
-            QualaApplication.prefs.accessToken = token.accessToken
-            QualaApplication.prefs.refreshToken = token.refreshToken
-
             // userId : 이후 서버 통신에 필요
             UserApiClient.instance.me { user, error ->
-                val userId = user?.id
+                userId = user?.id
             }
+
+            Log.d("[Quala] login", "로그인 성공, userId -> $userId")
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

@@ -11,10 +11,4 @@ class QualaPrefs(context: Context) {
         set(value){
             prefs.edit().putString("accessToken",value).apply()
         }
-
-    var refreshToken:String?
-        get() = prefs.getString("refreshToken", NoToken.NO_TOKEN.name) ?: NoToken.NO_TOKEN.name
-        set(value){
-            prefs.edit().putString("refreshToken",value).apply()
-        }
 }
