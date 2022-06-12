@@ -19,7 +19,7 @@
         app:tsb_max="7"
         app:tsb_progress="4"
         app:tsb_show_tick_marks_type="oval"
-        app:tsb_thumb_drawable="@drawable/test_done"
+        app:tsb_thumb_drawable="@drawable/ic_test_done"
         app:tsb_thumb_size="16dp"
         app:tsb_tick_marks_drawable="@drawable/selector_test_tsb"
         app:tsb_tick_marks_size="16dp"
@@ -36,7 +36,9 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Q4.\n한 여름, 길을 걷다가 땀을 많이 흘린 당신!\n시원한 음료를 하나 마시며 쉬었다가 가고 싶습니다.\n어떤 음료를 드시겠습니까?"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:textColor="@color/quala_b1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />
@@ -63,7 +65,7 @@
         android:outlineProvider="none"
         android:text="시원하고 달달한 복숭아 아이스티"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_question" />
@@ -80,7 +82,7 @@
         android:outlineProvider="none"
         android:text="얼음이 잔뜩 들어간 찐한 미숫가루"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_1" />

@@ -19,7 +19,7 @@
         app:tsb_max="7"
         app:tsb_progress="6"
         app:tsb_show_tick_marks_type="oval"
-        app:tsb_thumb_drawable="@drawable/test_done"
+        app:tsb_thumb_drawable="@drawable/ic_test_done"
         app:tsb_thumb_size="16dp"
         app:tsb_tick_marks_drawable="@drawable/selector_test_tsb"
         app:tsb_tick_marks_size="16dp"
@@ -36,7 +36,9 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Q6.\n두근두근 데이트날!\n당신은 어떤 데이트를 선호하시나요?"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:textColor="@color/quala_b1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />
@@ -63,7 +65,7 @@
         android:outlineProvider="none"
         android:text="등산 후, 산 아래 식당에서 먹는 막걸리와 파전"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_question" />
@@ -80,7 +82,7 @@
         android:outlineProvider="none"
         android:text="분위기 있는 레스토랑에서의 와인과 스테이크"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_1" />

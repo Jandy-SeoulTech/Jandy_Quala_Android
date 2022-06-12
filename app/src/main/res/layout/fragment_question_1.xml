@@ -19,7 +19,7 @@
         app:tsb_max="7"
         app:tsb_progress="1"
         app:tsb_show_tick_marks_type="oval"
-        app:tsb_thumb_drawable="@drawable/test_done"
+        app:tsb_thumb_drawable="@drawable/ic_test_done"
         app:tsb_thumb_size="16dp"
         app:tsb_tick_marks_drawable="@drawable/selector_test_tsb"
         app:tsb_tick_marks_size="16dp"
@@ -36,7 +36,9 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Q1.\n여름 휴가를 떠난 당신!\n눈 앞에 바다를 두고 어떤 술을 드시겠습니까?"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:textColor="@color/quala_b1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />
@@ -63,7 +65,7 @@
         android:outlineProvider="none"
         android:text="상큼한 모히또"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_question" />
@@ -80,7 +82,7 @@
         android:outlineProvider="none"
         android:text="달콤쌉쌀한 맛의 와인"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_1" />

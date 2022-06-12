@@ -19,7 +19,7 @@
         app:tsb_max="7"
         app:tsb_progress="3"
         app:tsb_show_tick_marks_type="oval"
-        app:tsb_thumb_drawable="@drawable/test_done"
+        app:tsb_thumb_drawable="@drawable/ic_test_done"
         app:tsb_thumb_size="16dp"
         app:tsb_tick_marks_drawable="@drawable/selector_test_tsb"
         app:tsb_tick_marks_size="16dp"
@@ -36,7 +36,9 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Q3.\n일에 집중하느라 많은 에너지를 쓴 당신!\n간식으로 활기를 좀 얻고 싶은데요.\n아래 간식 중 어떤 것을 드시겠습니까?"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:textColor="@color/quala_b1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />
@@ -63,7 +65,7 @@
         android:outlineProvider="none"
         android:text="종류별로 준비된 새콤달콤한 과일"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_question" />
@@ -80,7 +82,7 @@
         android:outlineProvider="none"
         android:text="다양한 종류의 고소한 뻥튀기"
         android:textColor="@color/quala_white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_1" />
