@@ -18,6 +18,6 @@ class QualaApplication : Application(){
         prefs = QualaPrefs(applicationContext)
 
         SocketApplication.appContext = this
-        KakaoSdk.init(this,getString(R.string.kakao_app_key))
+        KakaoSdk.init(this, getString(R.string.kakao_app_key))
     }
 }

@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object QualaService {
 
-    private const val BASE_URL: String = "https://quala.kro.kr/"
+    private const val BASE_URL: String = "https://quala.kro.kr/api/v1/"
 
     private val intercepter = Interceptor { chain ->
         val newRequest = chain.request().newBuilder()
