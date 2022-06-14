@@ -54,6 +54,7 @@ class WriteReviewActivity : AppCompatActivity() {
             btnComplete.setOnClickListener {
                 val writeReviewInfo = getWriteReviewInfo()
                 callWriteReviewAPI(writeReviewInfo)
+                Log.d("Quala", "$writeReviewInfo")
             }
         }
     }
@@ -61,8 +62,6 @@ class WriteReviewActivity : AppCompatActivity() {
     private fun subscribeViewModel() {
         writeReviewViewModel.writeReviewOkCode.observe(this) {
             if (it) {
-                val intent = Intent(this@WriteReviewActivity, AlcoholDetailActivity::class.java)
-                this@WriteReviewActivity.startActivity(intent)
                 finish()
             } else {
                 Toast.makeText(this, "죄송합니다. 리뷰 작성 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
@@ -73,7 +72,7 @@ class WriteReviewActivity : AppCompatActivity() {
     private fun getWriteReviewInfo(): WriteReviewRequest {
         return WriteReviewRequest(
             alcoholId = alcoholId,
-            startPoint = binding.ratingBar.starProgress,
+            starPoint = binding.ratingBar.starProgress,
             content = binding.etReview.text.toString()
         )
     }

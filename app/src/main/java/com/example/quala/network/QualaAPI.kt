@@ -12,4 +12,8 @@ object QualaAPI {
     fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any> {
         return QualaService.service.requstWriteReview(writeReviewInfo)
     }
+
+    fun requstInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse> {
+        return QualaService.service.requstInquireReview(alcoholId)
+    }
 }

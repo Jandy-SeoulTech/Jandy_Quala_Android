@@ -1,107 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/quala_white"
-    app:cardCornerRadius="9dp"
-    app:cardElevation="2dp">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingBottom="13dp">
-
-        <ImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="13dp" />
+        app:cardBackgroundColor="@color/quala_white"
+        app:cardCornerRadius="9dp"
+        app:cardElevation="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="21dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="13dp">
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="13dp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical">
-                <com.cb.ratingbar.CBRatingBar
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:starCount="5"
-                    app:starMaxProgress="5"
-                    app:starCanTouch="false"
-                    app:starSize="10dp"
-                    app:starSpace="2dp"
-                    app:starPathDataId="@string/star"
-                    app:starStrokeColor="@color/transparent"
-                    app:starFillColor="@color/quala_g2"
-                    app:starStartColor="@color/quala_red"
-                    app:starEndColor="@color/quala_red" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="13dp"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_rating"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textColor="@color/quala_g6"
-                    android:textSize="11sp" />
+                    android:gravity="center_vertical">
+
+                    <com.cb.ratingbar.CBRatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:starCanTouch="false"
+                        app:starCount="5"
+                        app:starEndColor="@color/quala_red"
+                        app:starFillColor="@color/quala_g2"
+                        app:starMaxProgress="5"
+                        app:starPathDataId="@string/star"
+                        app:starSize="10dp"
+                        app:starSpace="2dp"
+                        app:starStartColor="@color/quala_red"
+                        app:starStrokeColor="@color/transparent" />
+
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:textColor="@color/quala_g6"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tv_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/quala_g4"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/tv_slash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="/"
+                        android:textColor="@color/quala_g4"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/quala_g4"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <kr.co.prnd.readmore.ReadMoreTextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:textColor="@color/quala_b1"
+                    android:textSize="11sp"
+                    app:readMoreColor="@color/quala_g4"
+                    app:readMoreMaxLine="4"
+                    app:readMoreText="…더보기" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:id="@+id/tv_nickname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/quala_g4"
-                    android:textSize="9sp" />
-
-                <TextView
-                    android:id="@+id/tv_slash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:text="/"
-                    android:textColor="@color/quala_g4"
-                    android:textSize="9sp" />
-
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/quala_g4"
-                    android:textSize="9sp" />
-            </LinearLayout>
-
-            <kr.co.prnd.readmore.ReadMoreTextView
-                android:id="@+id/tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/quala_b1"
-                android:textSize="11sp"
-                app:readMoreColor="@color/quala_g4"
-                app:readMoreMaxLine="4"
-                app:readMoreText="…더보기" />
         </LinearLayout>
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -10,4 +10,7 @@ interface IQualaService {
 
     @POST("review")
     fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any>
+
+    @GET("review")
+    fun requstInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse>
 }
