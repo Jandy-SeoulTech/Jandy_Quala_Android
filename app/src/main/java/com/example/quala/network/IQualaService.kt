@@ -7,4 +7,7 @@ import retrofit2.http.*
 interface IQualaService {
     @POST("auth/login")
     fun requstLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
+
+    @POST("review")
+    fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any>
 }

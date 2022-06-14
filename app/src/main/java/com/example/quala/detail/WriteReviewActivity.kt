@@ -5,14 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityWriteReviewBinding
+import com.example.quala.httpbody.WriteReviewRequest
 
 class WriteReviewActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityWriteReviewBinding
+    lateinit var writeReviewViewModel: ReviewViewModel
+    var alcoholId: Long = 7
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +29,9 @@ class WriteReviewActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.back_temp)
+
+        writeReviewViewModel = ViewModelProvider(this).get(ReviewViewModel::class.java)
+        subscribeViewModel()
 
         binding.apply {
             btnComplete.isEnabled = false
@@ -43,12 +52,33 @@ class WriteReviewActivity : AppCompatActivity() {
             })
 
             btnComplete.setOnClickListener {
-                val intent = Intent(this@WriteReviewActivity, AlcoholDetailActivity::class.java)
-                this@WriteReviewActivity.startActivity(intent)
-                finish()
+                val writeReviewInfo = getWriteReviewInfo()
+                callWriteReviewAPI(writeReviewInfo)
             }
         }
     }
+
+    private fun subscribeViewModel() {
+        writeReviewViewModel.writeReviewOkCode.observe(this) {
+            if (it) {
+                val intent = Intent(this@WriteReviewActivity, AlcoholDetailActivity::class.java)
+                this@WriteReviewActivity.startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "죄송합니다. 리뷰 작성 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun getWriteReviewInfo(): WriteReviewRequest {
+        return WriteReviewRequest(
+            alcoholId = alcoholId,
+            startPoint = binding.ratingBar.starProgress,
+            content = binding.etReview.text.toString()
+        )
+    }
+
+    private fun callWriteReviewAPI(writeReviewInfo: WriteReviewRequest) = writeReviewViewModel.requstWriteReview(writeReviewInfo)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_review, menu)

@@ -25,7 +25,7 @@ class LoginViewModel: ViewModel() {
                     loginOkCode.postValue(true)
                     Log.d("[Quala API] login", "로그인 요청 성공")
                 } else {
-                    Log.d("[Quala API] login", "로그인 요청 실패, status code : ${response.code()}")
+                    Log.d("[Quala API] login", "로그인 요청 실패, status code : ${response.code()}, ${response.errorBody()?.string()!!}")
                 }
             }
 

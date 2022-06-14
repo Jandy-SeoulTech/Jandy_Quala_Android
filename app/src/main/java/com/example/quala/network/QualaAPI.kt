@@ -8,4 +8,8 @@ object QualaAPI {
     fun requstLogin(@Body loginInfo: LoginRequest): Call<LoginResponse> {
         return QualaService.service.requstLogin(loginInfo)
     }
+
+    fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any> {
+        return QualaService.service.requstWriteReview(writeReviewInfo)
+    }
 }
