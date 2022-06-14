@@ -2,7 +2,6 @@ package com.example.quala.detail
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -59,7 +58,7 @@ class FragmentReviewList : Fragment() {
                     binding.tvNull.visibility = View.GONE
 
                     reviewData.forEach { i ->
-                        datas.add(Review("https://quala-s3.s3.ap-northeast-2.amazonaws.com/alcohol/165510784160823506.png", i.starPoint, "밍나", i.date, i.content))
+                        datas.add(Review(i.profileImg, i.starPoint, i.writerNickname, i.date, i.content))
                         adapter.notifyDataSetChanged()
                     }
                 }

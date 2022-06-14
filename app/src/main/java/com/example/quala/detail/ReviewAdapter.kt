@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.quala.R
 import com.example.quala.databinding.RecyclerReviewBinding
 
 
@@ -29,6 +30,7 @@ class ReviewAdapter(val reviewData: List<Review>): RecyclerView.Adapter<Recycler
         binding.apply {
             Glide.with(context)
                 .load(reviewData[position].profile)
+                .error(R.drawable.no_profile_temp)
                 .into(binding.ivProfile)
 
             ratingBar.starProgress = reviewData[position].score
