@@ -3,8 +3,15 @@ package com.example.quala.recommend
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.example.quala.R
 import com.example.quala.databinding.ActivityResultBinding
+import com.example.quala.httpbody.RecommendRequest
+import com.example.quala.httpbody.ResultInfo
 import com.example.quala.mypage.MyFormatter
+import com.example.quala.network.QualaAPI
 import com.github.mikephil.charting.data.RadarData
 import com.github.mikephil.charting.data.RadarDataSet
 import com.github.mikephil.charting.data.RadarEntry
@@ -13,6 +20,9 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 class ResultActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityResultBinding
+    lateinit var recommendResultViewModel: RecommendResultViewModel
+    lateinit var recommendResult: ResultInfo
+
     var sweet = 0
     var acidity = 0
     var plain = 0
@@ -31,6 +41,44 @@ class ResultActivity : AppCompatActivity() {
         percent = intent.getIntExtra("percent", 0)
 
         setRadarGraph()
+
+        recommendResultViewModel = ViewModelProvider(this).get(RecommendResultViewModel::class.java)
+
+        val resultData = testResult()
+        callRecommendAPI(resultData)
+        subscribeViewModel()
+
+        binding.btnFinish.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun testResult(): RecommendRequest = RecommendRequest(percent, sweet, acidity, plain, body)
+
+    private fun callRecommendAPI(resultData: RecommendRequest) = recommendResultViewModel.requestRecommendResult(resultData)
+
+    private fun subscribeViewModel() {
+        recommendResultViewModel.recommendResultOkCode.observe(this) {
+            if (it) {
+                recommendResult = recommendResultViewModel.recommendResult
+
+                Glide.with(this)
+                    .load(recommendResult.image)
+                    .error(R.drawable.no_item_temp)
+                    .into(binding.imageView)
+
+                binding.apply {
+                    tvName.text = recommendResult.name
+                    tvPercentNum.text = recommendResult.level.toString()
+                    tvVolumeNum.text = recommendResult.size.toString()
+                    ratingBar.starProgress = recommendResult.starPoint
+                    tvRating.text = recommendResult.starPoint.toString()
+                    tvDescription.text = recommendResult.introduce
+                }
+            } else {
+                Toast.makeText(this, "죄송합니다. 술 추천 결과 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setRadarGraph() {

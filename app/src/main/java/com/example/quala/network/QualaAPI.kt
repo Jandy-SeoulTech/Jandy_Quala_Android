@@ -20,4 +20,8 @@ object QualaAPI {
     fun requestAlcoholDetail(@Query("id") id: Long): Call<AlcoholDetailResponse> {
         return QualaService.service.requestAlcoholDetail(id)
     }
+
+    fun requestRecommendResult(@Body recommendRequest: RecommendRequest): Call<RecommendResponse> {
+        return QualaService.service.requestRecommendResult(recommendRequest)
+    }
 }

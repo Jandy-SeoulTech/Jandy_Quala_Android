@@ -16,4 +16,7 @@ interface IQualaService {
 
     @GET("alcohol/detail")
     fun requestAlcoholDetail(@Query("id") id: Long): Call<AlcoholDetailResponse>
+
+    @POST("recommend")
+    fun requestRecommendResult(@Body recommendRequest: RecommendRequest): Call<RecommendResponse>
 }
