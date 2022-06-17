@@ -16,8 +16,8 @@ class ReviewViewModel: ViewModel() {
     // 리뷰 작성
     val writeReviewOkCode: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun requstWriteReview(writeReviewInfo: WriteReviewRequest) {
-        QualaAPI.requstWriteReview(writeReviewInfo).enqueue(object : Callback<Any> {
+    fun requestWriteReview(writeReviewInfo: WriteReviewRequest) {
+        QualaAPI.requestWriteReview(writeReviewInfo).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if (response.isSuccessful) {
                     writeReviewOkCode.postValue(true)
@@ -42,8 +42,8 @@ class ReviewViewModel: ViewModel() {
     val inquireReviewList: ArrayList<AlcoholReview>?
         get() = _inquireReviewList
 
-    fun requstInquireReview(alcoholId: Long) {
-        QualaAPI.requstInquireReview(alcoholId).enqueue(object : Callback<InquireReviewResponse> {
+    fun requestInquireReview(alcoholId: Long) {
+        QualaAPI.requestInquireReview(alcoholId).enqueue(object : Callback<InquireReviewResponse> {
             override fun onResponse(call: Call<InquireReviewResponse>, response: Response<InquireReviewResponse>) {
 
                 _inquireReviewList = response.body()?.reviewList

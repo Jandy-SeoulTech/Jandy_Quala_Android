@@ -76,7 +76,7 @@ class WriteReviewActivity : AppCompatActivity() {
         )
     }
 
-    private fun callWriteReviewAPI(writeReviewInfo: WriteReviewRequest) = writeReviewViewModel.requstWriteReview(writeReviewInfo)
+    private fun callWriteReviewAPI(writeReviewInfo: WriteReviewRequest) = writeReviewViewModel.requestWriteReview(writeReviewInfo)
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_review, menu)

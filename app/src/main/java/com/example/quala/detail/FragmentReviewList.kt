@@ -43,7 +43,7 @@ class FragmentReviewList : Fragment() {
         return binding.root
     }
 
-    private fun callInquireReviewAPI(alcoholId: Long) = reviewViewModel.requstInquireReview(alcoholId)
+    private fun callInquireReviewAPI(alcoholId: Long) = reviewViewModel.requestInquireReview(alcoholId)
 
     private fun subscribeViewModel() {
         reviewViewModel.inquireReviewOkCode.observe(detailActivity) {

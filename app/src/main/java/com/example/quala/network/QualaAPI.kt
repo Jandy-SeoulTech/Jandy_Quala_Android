@@ -5,15 +5,19 @@ import retrofit2.Call
 import retrofit2.http.*
 
 object QualaAPI {
-    fun requstLogin(@Body loginInfo: LoginRequest): Call<LoginResponse> {
-        return QualaService.service.requstLogin(loginInfo)
+    fun requestLogin(@Body loginInfo: LoginRequest): Call<LoginResponse> {
+        return QualaService.service.requestLogin(loginInfo)
     }
 
-    fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any> {
-        return QualaService.service.requstWriteReview(writeReviewInfo)
+    fun requestWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any> {
+        return QualaService.service.requestWriteReview(writeReviewInfo)
     }
 
-    fun requstInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse> {
-        return QualaService.service.requstInquireReview(alcoholId)
+    fun requestInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse> {
+        return QualaService.service.requestInquireReview(alcoholId)
+    }
+
+    fun requestAlcoholDetail(@Query("id") id: Long): Call<AlcoholDetailResponse> {
+        return QualaService.service.requestAlcoholDetail(id)
     }
 }

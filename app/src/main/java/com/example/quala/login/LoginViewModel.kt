@@ -17,7 +17,7 @@ class LoginViewModel: ViewModel() {
     var accessToken: String = ""
 
     fun requestLogin(loginInfo: LoginRequest) {
-        QualaAPI.requstLogin(loginInfo).enqueue(object: Callback<LoginResponse> {
+        QualaAPI.requestLogin(loginInfo).enqueue(object: Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 accessToken = "Bearer ${response.body()?.loginData?.accessToken ?: NoToken.NO_TOKEN.name}"
 

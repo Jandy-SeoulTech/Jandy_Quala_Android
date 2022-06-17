@@ -6,11 +6,14 @@ import retrofit2.http.*
 
 interface IQualaService {
     @POST("auth/login")
-    fun requstLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
+    fun requestLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
 
     @POST("review")
-    fun requstWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any>
+    fun requestWriteReview(@Body writeReviewInfo: WriteReviewRequest): Call<Any>
 
     @GET("review")
-    fun requstInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse>
+    fun requestInquireReview(@Query("alcoholId") alcoholId: Long): Call<InquireReviewResponse>
+
+    @GET("alcohol/detail")
+    fun requestAlcoholDetail(@Query("id") id: Long): Call<AlcoholDetailResponse>
 }
