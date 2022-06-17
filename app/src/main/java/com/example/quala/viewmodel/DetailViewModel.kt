@@ -1,9 +1,8 @@
-package com.example.quala.detail
+package com.example.quala.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.quala.httpbody.AlcoholDetail
 import com.example.quala.httpbody.AlcoholDetailBottom
 import com.example.quala.httpbody.AlcoholDetailResponse
 import com.example.quala.httpbody.AlcoholDetailTop

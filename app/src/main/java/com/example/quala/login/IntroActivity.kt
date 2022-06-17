@@ -12,6 +12,7 @@ import com.example.quala.databinding.ActivityIntroBinding
 import com.example.quala.home.MainActivity
 import com.example.quala.httpbody.LoginRequest
 import com.example.quala.sharedpreference.QualaApplication
+import com.example.quala.viewmodel.LoginViewModel
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
 

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.quala.databinding.FoodChipBinding
 import com.example.quala.databinding.FragmentAlcoholDescriptionBinding
 import com.example.quala.httpbody.AlcoholDetailBottom
+import com.example.quala.viewmodel.DetailViewModel
 import com.google.android.material.chip.Chip
 
 class FragmentAlcoholDescription : Fragment() {

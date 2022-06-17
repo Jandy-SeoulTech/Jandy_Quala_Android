@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.quala.R
 import com.example.quala.databinding.ActivityAlcoholDetailBinding
 import com.example.quala.httpbody.AlcoholDetailTop
+import com.example.quala.viewmodel.DetailViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.roundToInt
 

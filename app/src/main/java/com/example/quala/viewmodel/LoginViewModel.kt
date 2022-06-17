@@ -1,4 +1,4 @@
-package com.example.quala.login
+package com.example.quala.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

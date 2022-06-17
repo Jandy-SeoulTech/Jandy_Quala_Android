@@ -12,6 +12,7 @@ import com.example.quala.databinding.ActivityResultBinding
 import com.example.quala.httpbody.RecommendRequest
 import com.example.quala.httpbody.ResultInfo
 import com.example.quala.mypage.MyFormatter
+import com.example.quala.viewmodel.RecommendResultViewModel
 import com.github.mikephil.charting.data.RadarData
 import com.github.mikephil.charting.data.RadarDataSet
 import com.github.mikephil.charting.data.RadarEntry

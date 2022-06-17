@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quala.RecyclerDecorationGap
 import com.example.quala.databinding.FragmentReviewListBinding
+import com.example.quala.viewmodel.ReviewViewModel
 
 class FragmentReviewList : Fragment() {
     lateinit var binding: FragmentReviewListBinding

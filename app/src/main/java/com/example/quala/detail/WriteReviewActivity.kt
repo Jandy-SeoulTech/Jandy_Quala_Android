@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityWriteReviewBinding
 import com.example.quala.httpbody.WriteReviewRequest
+import com.example.quala.viewmodel.ReviewViewModel
 
 class WriteReviewActivity : AppCompatActivity() {
 
