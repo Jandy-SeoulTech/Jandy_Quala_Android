@@ -76,10 +76,9 @@ class AlcoholDetailActivity : AppCompatActivity() {
                     progressBar3.progress = alcoholDetailTop.plain
                     progressBar4.progress = alcoholDetailTop.body
                     when (alcoholDetailTop.level.roundToInt()) {
-                        in 0..5 -> progressBar5.progress = 1
-                        in 5..10 -> progressBar5.progress = 2
-                        in 10..15 -> progressBar5.progress = 3
-                        else -> progressBar5.progress = 4
+                        in 0 until 5 -> progressBar5.progress = 1
+                        in 5 until 10 -> progressBar5.progress = 2
+                        else -> progressBar5.progress = 3
                     }
                 }
             } else {
