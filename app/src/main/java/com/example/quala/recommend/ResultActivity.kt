@@ -1,5 +1,6 @@
 package com.example.quala.recommend
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +12,6 @@ import com.example.quala.databinding.ActivityResultBinding
 import com.example.quala.httpbody.RecommendRequest
 import com.example.quala.httpbody.ResultInfo
 import com.example.quala.mypage.MyFormatter
-import com.example.quala.network.QualaAPI
 import com.github.mikephil.charting.data.RadarData
 import com.github.mikephil.charting.data.RadarDataSet
 import com.github.mikephil.charting.data.RadarEntry
@@ -49,6 +49,10 @@ class ResultActivity : AppCompatActivity() {
         subscribeViewModel()
 
         binding.btnFinish.setOnClickListener {
+            val intent = Intent(this, RecommendActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
             finish()
         }
     }

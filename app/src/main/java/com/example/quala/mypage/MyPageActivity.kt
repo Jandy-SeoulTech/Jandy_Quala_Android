@@ -148,16 +148,19 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 val intent = Intent(this, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
+                finish()
             }
             R.id.introduce -> {
                 val intent = Intent(this, IntroduceActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
+                finish()
             }
             R.id.recommend -> {
                 val intent = Intent(this, RecommendActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
+                finish()
             }
             R.id.mypage -> {
             }
@@ -165,11 +168,18 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         return false
     }
 
+    private var backPressedTime: Long = 0
+
     override fun onBackPressed() {
         if(binding.drawerLayout.isDrawerOpen(GravityCompat.START)){
             binding.drawerLayout.closeDrawers()
-        }else{
-            super.onBackPressed()
+        } else {
+            // 2초내 다시 클릭하면 앱 종료
+            if (System.currentTimeMillis() - backPressedTime < 2000) {
+                finish()
+            }
+            Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show()
+            backPressedTime = System.currentTimeMillis()
         }
     }
 }
