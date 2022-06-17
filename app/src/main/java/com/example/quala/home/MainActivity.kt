@@ -1,24 +1,36 @@
 package com.example.quala.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityMainBinding
+import com.example.quala.detail.Review
+import com.example.quala.httpbody.AlcoholInfo
 import com.example.quala.introduce.IntroduceActivity
 import com.example.quala.mypage.MyPageActivity
 import com.example.quala.recommend.RecommendActivity
 import com.google.android.material.navigation.NavigationView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var alcoholViewModel: AlcoholViewModel
+
+    val carouselData = mutableListOf<CarouselData>()
     lateinit var carouselAdapter: CarouselAdapter
-    lateinit var adapter: RecoAdapter
+
+    lateinit var adapter1: RecoAdapter
+    lateinit var adapter2: RecoAdapter
+    lateinit var adapter3: RecoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,29 +44,45 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        // 상단 carousel의 데이터 세팅
-        val carouselData = ArrayList<CarouselData>()
-        for (i in 1..7){
-            carouselData.add(CarouselData(R.drawable.item_temp, "고흥 유자주"))
-        }
-        carouselAdapter = CarouselAdapter(carouselData)
+        alcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
 
-        // 하단 3칸의 데이터 세팅
-        val datas = mutableListOf<RecoData>()
+        subscribeViewModel()
+        callInquireAllAlcoholAPI()
+
+        // 요일별 문구 세팅
+        setDayText()
+
+        // 맞춤 술
+        val datas1 = mutableListOf<RecoData>()
         for (i in 1..10){
-            datas.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
+            datas1.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
         }
-        adapter = RecoAdapter(datas)
+        adapter1 = RecoAdapter(datas1)
+
+        // 분위기 추천 술
+        val datas2 = mutableListOf<RecoData>()
+        for (i in 1..10){
+            datas2.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
+        }
+        adapter2 = RecoAdapter(datas2)
+
+        // 인기 술
+        val datas3 = mutableListOf<RecoData>()
+        for (i in 1..10){
+            datas3.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
+        }
+        adapter3 = RecoAdapter(datas3)
 
         binding.apply {
             mainLayout.apply {
+                carouselAdapter = CarouselAdapter(carouselData)
                 rvCarousel.adapter = carouselAdapter
                 rvCarousel.setAlpha(true)
                 rvCarousel.setIntervalRatio(0.55f)
 
-                rvRecommend1.adapter = adapter
-                rvRecommend2.adapter = adapter
-                rvRecommend3.adapter = adapter
+                rvRecommend1.adapter = adapter1
+                rvRecommend2.adapter = adapter2
+                rvRecommend3.adapter = adapter3
 
                 btnTest.setOnClickListener {
                     val intent = Intent(this@MainActivity, RecommendActivity::class.java)
@@ -63,6 +91,58 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
 
+        }
+    }
+
+    private fun callInquireAllAlcoholAPI() = alcoholViewModel.requestAllAlcohol()
+
+    private fun subscribeViewModel() {
+        alcoholViewModel.allAlcoholOkCode.observe(this) {
+            if (it) {
+                val alcohols = alcoholViewModel.alcoholList
+
+                if (alcohols.isNullOrEmpty()) {
+                    Toast.makeText(this, "조회하는 아이템이 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    setDayAlcohol(alcohols)
+                }
+            } else {
+                Toast.makeText(this, "죄송합니다. 술 목록 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setDayAlcohol(alcohols: ArrayList<AlcoholInfo>) {
+        val randomIndexList: MutableSet<Int> = mutableSetOf()
+        for (i in 0..7) {
+            randomIndexList.add((0 until alcohols.size).random())
+        }
+
+        for (i in randomIndexList) {
+            carouselData.add(CarouselData(alcohols[i].alcohol.id, alcohols[i].alcohol.image, alcohols[i].alcohol.name))
+        }
+
+        carouselAdapter.notifyDataSetChanged()
+    }
+
+    private fun setDayText() {
+        val currentDate = Date()
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.time = currentDate
+
+        val day = calendar.get(Calendar.DAY_OF_WEEK)
+
+        binding.mainLayout.apply {
+            when (day) {
+                1 -> tvDay.text = "상쾌한 일요일에"
+                2 -> tvDay.text = "화이팅 월요일에"
+                3 -> tvDay.text = "바쁜 화요일에"
+                4 -> tvDay.text = "지치는 수요일에"
+                5 -> tvDay.text = "행복한 목요일에"
+                6 -> tvDay.text = "불타는 금요일에"
+                7 -> tvDay.text = "즐거운 토요일에"
+            }
         }
     }
 

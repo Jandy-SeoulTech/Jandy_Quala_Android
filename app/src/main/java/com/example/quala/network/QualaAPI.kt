@@ -24,4 +24,8 @@ object QualaAPI {
     fun requestRecommendResult(@Body recommendRequest: RecommendRequest): Call<RecommendResponse> {
         return QualaService.service.requestRecommendResult(recommendRequest)
     }
+
+    fun requestAllAlcohol(): Call<AlcoholResponse> {
+        return QualaService.service.requestAllAlcohol()
+    }
 }

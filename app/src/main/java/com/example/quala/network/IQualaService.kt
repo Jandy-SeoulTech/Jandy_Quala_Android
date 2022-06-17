@@ -19,4 +19,7 @@ interface IQualaService {
 
     @POST("recommend")
     fun requestRecommendResult(@Body recommendRequest: RecommendRequest): Call<RecommendResponse>
+
+    @GET("alcohol")
+    fun requestAllAlcohol(): Call<AlcoholResponse>
 }

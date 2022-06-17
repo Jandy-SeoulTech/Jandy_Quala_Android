@@ -30,7 +30,7 @@ class RecoAdapter(val recoData: List<RecoData>): RecyclerView.Adapter<RecyclerVi
         binding.ivItemImg.setImageResource(recoData[position].img)
         binding.tvItemName.text = recoData[position].title
 
-        //TODO: 디테일 액티비티로 넘어가기
+        //TODO: 디테일 액티비티로 넘어가기, id 넘기기
         holder.itemView.setOnClickListener {
             val intent = Intent(context, AlcoholDetailActivity::class.java)
             context.startActivity(intent)

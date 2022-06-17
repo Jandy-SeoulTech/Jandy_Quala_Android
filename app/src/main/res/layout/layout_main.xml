@@ -42,7 +42,6 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/noto_sans_kr_bold"
-            android:text="불타는 금요일에"
             android:textColor="@color/quala_green"
             android:textSize="33sp"
             app:layout_constraintStart_toStartOf="parent"

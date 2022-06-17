@@ -23,7 +23,7 @@ class AlcoholDetailActivity : AppCompatActivity() {
     lateinit var alcoholDetailTop: AlcoholDetailTop
 
     // TODO: introduce 페이지 연동 후 id는 intent로 받아오기
-    var id: Long = 7
+    var id: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +36,8 @@ class AlcoholDetailActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.back_temp)
 
         setViewPagerAndTabLayout()
+
+        id = intent.getLongExtra("id", 0)
 
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 

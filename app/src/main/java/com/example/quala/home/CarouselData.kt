@@ -1,6 +1,7 @@
 package com.example.quala.home
 
 data class CarouselData(
-    val img: Int = 0,
+    val id: Long = 0,
+    val img: String = "",
     val name: String = ""
 )
