@@ -2,6 +2,7 @@ package com.example.quala.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -26,9 +27,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     val carouselData = mutableListOf<CarouselData>()
     lateinit var carouselAdapter: CarouselAdapter
-
+    val datas1 = mutableListOf<RecoData>()
     lateinit var adapter1: RecoAdapter
+    val datas2 = mutableListOf<RecoData>()
     lateinit var adapter2: RecoAdapter
+    val datas3 = mutableListOf<RecoData>()
     lateinit var adapter3: RecoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,27 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // 요일별 문구 세팅
         setDayText()
 
-        // 맞춤 술
-        val datas1 = mutableListOf<RecoData>()
-        for (i in 1..10){
-            datas1.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
-        }
-        adapter1 = RecoAdapter(datas1)
-
-        // 분위기 추천 술
-        val datas2 = mutableListOf<RecoData>()
-        for (i in 1..10){
-            datas2.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
-        }
-        adapter2 = RecoAdapter(datas2)
-
-        // 인기 술
-        val datas3 = mutableListOf<RecoData>()
-        for (i in 1..10){
-            datas3.add(RecoData(R.drawable.item_temp, "고흥 유자주"))
-        }
-        adapter3 = RecoAdapter(datas3)
-
         binding.apply {
             mainLayout.apply {
                 carouselAdapter = CarouselAdapter(carouselData)
@@ -79,8 +61,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 rvCarousel.setAlpha(true)
                 rvCarousel.setIntervalRatio(0.55f)
 
+                adapter1 = RecoAdapter(datas1)
                 rvRecommend1.adapter = adapter1
+                adapter2 = RecoAdapter(datas2)
                 rvRecommend2.adapter = adapter2
+                adapter3 = RecoAdapter(datas3)
                 rvRecommend3.adapter = adapter3
 
                 btnTest.setOnClickListener {
@@ -89,7 +74,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     startActivity(intent)
                 }
             }
-
         }
     }
 
@@ -105,6 +89,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 else {
                     setDayAlcohol(alcohols)
+                    setRecommendAlcohols(alcohols)
+                    setSituationAlcohols(alcohols)
+                    setHotAlcohols(alcohols)
                 }
             } else {
                 Toast.makeText(this, "죄송합니다. 술 목록 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
@@ -123,6 +110,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         carouselAdapter.notifyDataSetChanged()
+    }
+
+    private fun setRecommendAlcohols(alcohols: ArrayList<AlcoholInfo>) {
+        adapter1.notifyDataSetChanged()
+    }
+
+    private fun setSituationAlcohols(alcohols: ArrayList<AlcoholInfo>) {
+        adapter2.notifyDataSetChanged()
+    }
+
+    private fun setHotAlcohols(alcohols: ArrayList<AlcoholInfo>) {
+        val sortedAlcohol = alcohols.sortedByDescending{ it.reviewCount }
+
+        for (i in sortedAlcohol) {
+            datas3.add(RecoData(i.alcohol.id, i.alcohol.image, i.alcohol.name))
+        }
+
+        adapter3.notifyDataSetChanged()
     }
 
     private fun setDayText() {
