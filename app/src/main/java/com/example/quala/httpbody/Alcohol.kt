@@ -2,11 +2,25 @@ package com.example.quala.httpbody
 
 import com.google.gson.annotations.SerializedName
 
+// 전체 조회에서 필요
 data class AlcoholResponse (
     @SerializedName("data")
     val alcohols: ArrayList<AlcoholInfo>
 )
 
+// 조건 조회에서 필요
+data class AlcoholConditionalResponse (
+    @SerializedName("data")
+    val alcohols: ArrayList<AlcoholInfo>
+)
+
+data class AlcoholConditionalRequest (
+    val levels: List<Int>?,
+    val situations: List<String>?,
+    val category: String = ""
+    )
+
+// response에서 공통으로 사용
 data class AlcoholInfo (
     val alcohol: Alcohol = Alcohol(),
     val reviewCount: Int = 0

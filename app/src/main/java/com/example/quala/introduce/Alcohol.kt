@@ -1,7 +1,7 @@
 package com.example.quala.introduce
 
 data class Alcohol(
-    val img: Int,
+    val img: String,
     val name: String,
     val percent: Float,
     val volume: Int,

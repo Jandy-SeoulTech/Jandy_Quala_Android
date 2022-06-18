@@ -28,4 +28,8 @@ object QualaAPI {
     fun requestAllAlcohol(): Call<AlcoholResponse> {
         return QualaService.service.requestAllAlcohol()
     }
+
+    fun requestConditionalAlcohol(@Body conditionRequest: AlcoholConditionalRequest): Call<AlcoholConditionalResponse> {
+        return QualaService.service.requestConditionalAlcohol(conditionRequest)
+    }
 }

@@ -6,15 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.quala.R
 import com.example.quala.databinding.FragmentAlcoholOneBinding
+import com.example.quala.httpbody.*
+import com.example.quala.viewmodel.AlcoholViewModel
 
 class FragmentAlcoholOne : Fragment() {
 
     lateinit var binding: FragmentAlcoholOneBinding
     lateinit var introduceActivity: IntroduceActivity
     lateinit var adapter: AlcoholAdapter
+
+    lateinit var cAlcoholViewModel: AlcoholViewModel
+    val cAlcoholList = ArrayList<AlcoholInfo>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -24,9 +29,15 @@ class FragmentAlcoholOne : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentAlcoholOneBinding.inflate(inflater, container, false)
 
+        cAlcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
+
+        val condition = AlcoholConditionalRequest(null, null, "TAKJU")
+        callConditionalAlcoholAPI(condition)
+        subscribeViewModel()
+
         val datas = mutableListOf<Alcohol>()
-        for (i in 1..10){
-            datas.add(Alcohol(R.drawable.item_temp, "고흥유자주", 8.0f, 500, 3.8f, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."))
+        for (i in cAlcoholList){
+            datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
         }
 
         binding.recyclerAlcohol.layoutManager = LinearLayoutManager(introduceActivity)
@@ -35,4 +46,14 @@ class FragmentAlcoholOne : Fragment() {
 
         return binding.root
     }
+
+    private fun subscribeViewModel() {
+        cAlcoholViewModel.cAlcoholList.observe(introduceActivity) {
+            it.alcohols.forEach { i ->
+                cAlcoholList.add(i)
+            }
+        }
+    }
+
+    private fun callConditionalAlcoholAPI(condition: AlcoholConditionalRequest) = cAlcoholViewModel.requestConditionalAlcohol(condition)
 }

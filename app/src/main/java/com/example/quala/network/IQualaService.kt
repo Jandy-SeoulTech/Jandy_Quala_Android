@@ -4,6 +4,7 @@ import com.example.quala.httpbody.*
 import retrofit2.Call
 import retrofit2.http.*
 
+
 interface IQualaService {
     @POST("auth/login")
     fun requestLogin(@Body loginInfo: LoginRequest): Call<LoginResponse>
@@ -22,4 +23,7 @@ interface IQualaService {
 
     @GET("alcohol")
     fun requestAllAlcohol(): Call<AlcoholResponse>
+
+    @HTTP(method = "GET", path = "alcohol/conditions", hasBody = true)
+    fun requestConditionalAlcohol(@Body conditionRequest: AlcoholConditionalRequest): Call<AlcoholConditionalResponse>
 }

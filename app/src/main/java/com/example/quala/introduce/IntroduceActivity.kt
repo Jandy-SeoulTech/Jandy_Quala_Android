@@ -8,11 +8,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityIntroduceBinding
 import com.example.quala.home.MainActivity
+import com.example.quala.httpbody.AlcoholInfo
 import com.example.quala.mypage.MyPageActivity
 import com.example.quala.recommend.RecommendActivity
+import com.example.quala.viewmodel.AlcoholViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -21,6 +24,7 @@ class IntroduceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var binding: ActivityIntroduceBinding
     lateinit var viewPagerFragmentAdapter: IntroduceViewPagerFragmentAdapter
     lateinit var tabTitle: List<String>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

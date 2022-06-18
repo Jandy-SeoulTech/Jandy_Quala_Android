@@ -5,6 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.quala.R
 import com.example.quala.databinding.RecyclerAlcoholBinding
 import com.example.quala.detail.AlcoholDetailActivity
 
@@ -28,7 +30,11 @@ class AlcoholAdapter(val alcoholData: List<Alcohol>): RecyclerView.Adapter<Recyc
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as AlcoholViewHolder).binding
         binding.apply {
-            ivImage.setImageResource(alcoholData[position].img)
+            Glide.with(context)
+                .load(alcoholData[position].img)
+                .error(R.drawable.no_item_temp)
+                .into(binding.ivImage)
+            
             tvName.text = alcoholData[position].name
             tvPercentNum.text = alcoholData[position].percent.toString()
             tvVolumeNum.text = alcoholData[position].volume.toString()
