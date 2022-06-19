@@ -24,6 +24,10 @@ interface IQualaService {
     @GET("alcohol")
     fun requestAllAlcohol(): Call<AlcoholResponse>
 
-    @HTTP(method = "GET", path = "alcohol/conditions", hasBody = true)
-    fun requestConditionalAlcohol(@Body conditionRequest: AlcoholConditionalRequest): Call<AlcoholConditionalResponse>
+    @GET("alcohol/conditions")
+    fun requestConditionalAlcohol(
+        @Query("levelStats") levelStats: List<Int>?,
+        @Query("situations") situations: List<String>?,
+        @Query("category") category: String
+    ): Call<AlcoholConditionalResponse>
 }

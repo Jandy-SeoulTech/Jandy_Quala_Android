@@ -16,6 +16,7 @@ class FragmentAlcoholOne : Fragment() {
 
     lateinit var binding: FragmentAlcoholOneBinding
     lateinit var introduceActivity: IntroduceActivity
+    val datas = mutableListOf<Alcohol>()
     lateinit var adapter: AlcoholAdapter
 
     lateinit var cAlcoholViewModel: AlcoholViewModel
@@ -31,14 +32,8 @@ class FragmentAlcoholOne : Fragment() {
 
         cAlcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
 
-        val condition = AlcoholConditionalRequest(null, null, "TAKJU")
-        callConditionalAlcoholAPI(condition)
         subscribeViewModel()
-
-        val datas = mutableListOf<Alcohol>()
-        for (i in cAlcoholList){
-            datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
-        }
+        callConditionalAlcoholAPI(null, null, "TAKJU")
 
         binding.recyclerAlcohol.layoutManager = LinearLayoutManager(introduceActivity)
         adapter = AlcoholAdapter(datas)
@@ -52,8 +47,12 @@ class FragmentAlcoholOne : Fragment() {
             it.alcohols.forEach { i ->
                 cAlcoholList.add(i)
             }
+            for (i in cAlcoholList){
+                datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
+                adapter.notifyDataSetChanged()
+            }
         }
     }
 
-    private fun callConditionalAlcoholAPI(condition: AlcoholConditionalRequest) = cAlcoholViewModel.requestConditionalAlcohol(condition)
+    private fun callConditionalAlcoholAPI(levelStats: List<Int>?, situations: List<String>?, category: String) = cAlcoholViewModel.requestConditionalAlcohol(levelStats, situations, category)
 }

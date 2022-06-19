@@ -14,12 +14,6 @@ data class AlcoholConditionalResponse (
     val alcohols: ArrayList<AlcoholInfo>
 )
 
-data class AlcoholConditionalRequest (
-    val levels: List<Int>?,
-    val situations: List<String>?,
-    val category: String = ""
-    )
-
 // response에서 공통으로 사용
 data class AlcoholInfo (
     val alcohol: Alcohol = Alcohol(),

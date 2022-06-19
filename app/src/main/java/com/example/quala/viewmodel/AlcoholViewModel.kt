@@ -43,8 +43,8 @@ class AlcoholViewModel: ViewModel() {
     val cAlcoholList: MutableLiveData<AlcoholConditionalResponse>
         get() = _cAlcoholList
 
-    fun requestConditionalAlcohol(condition: AlcoholConditionalRequest) {
-        QualaAPI.requestConditionalAlcohol(condition).enqueue(object : Callback<AlcoholConditionalResponse> {
+    fun requestConditionalAlcohol(levelStats: List<Int>?, situations: List<String>?, category: String) {
+        QualaAPI.requestConditionalAlcohol(levelStats, situations, category).enqueue(object : Callback<AlcoholConditionalResponse> {
             override fun onResponse(call: Call<AlcoholConditionalResponse>, response: Response<AlcoholConditionalResponse>) {
                 if (response.isSuccessful) {
                     _cAlcoholList.postValue(response.body())

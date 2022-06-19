@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quala.R
 import com.example.quala.databinding.FragmentAlcoholFourBinding
-import com.example.quala.httpbody.AlcoholConditionalRequest
 import com.example.quala.httpbody.AlcoholInfo
 import com.example.quala.viewmodel.AlcoholViewModel
 
@@ -18,6 +17,7 @@ class FragmentAlcoholFour : Fragment() {
 
     lateinit var binding: FragmentAlcoholFourBinding
     lateinit var introduceActivity: IntroduceActivity
+    val datas = mutableListOf<Alcohol>()
     lateinit var adapter: AlcoholAdapter
 
     lateinit var cAlcoholViewModel: AlcoholViewModel
@@ -33,14 +33,8 @@ class FragmentAlcoholFour : Fragment() {
 
         cAlcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
 
-        val condition = AlcoholConditionalRequest(null, null, "TAKJU")
-        callConditionalAlcoholAPI(condition)
         subscribeViewModel()
-
-        val datas = mutableListOf<Alcohol>()
-        for (i in cAlcoholList){
-            datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
-        }
+        callConditionalAlcoholAPI(null, null, "OTHER")
 
         binding.recyclerAlcohol.layoutManager = LinearLayoutManager(introduceActivity)
         adapter = AlcoholAdapter(datas)
@@ -54,8 +48,12 @@ class FragmentAlcoholFour : Fragment() {
             it.alcohols.forEach { i ->
                 cAlcoholList.add(i)
             }
+            for (i in cAlcoholList){
+                datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
+                adapter.notifyDataSetChanged()
+            }
         }
     }
 
-    private fun callConditionalAlcoholAPI(condition: AlcoholConditionalRequest) = cAlcoholViewModel.requestConditionalAlcohol(condition)
+    private fun callConditionalAlcoholAPI(levelStats: List<Int>?, situations: List<String>?, category: String) = cAlcoholViewModel.requestConditionalAlcohol(levelStats, situations, category)
 }
