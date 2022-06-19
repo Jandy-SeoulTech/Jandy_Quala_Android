@@ -38,5 +38,7 @@
         android:layout_marginTop="9dp"
         android:fontFamily="@font/noto_sans_kr_medium"
         android:textColor="@color/quala_b1"
-        android:textSize="9sp" />
+        android:textSize="9sp"
+        android:maxLength="7"
+        android:ellipsize="end"/>
 </LinearLayout>

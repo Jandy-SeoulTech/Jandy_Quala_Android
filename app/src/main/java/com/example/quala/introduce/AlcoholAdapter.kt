@@ -43,9 +43,9 @@ class AlcoholAdapter(val alcoholData: List<Alcohol>): RecyclerView.Adapter<Recyc
             tvDescription.text = alcoholData[position].description
         }
 
-        //TODO: 디테일 액티비티로 넘어가기
         holder.itemView.setOnClickListener {
             val intent = Intent(context, AlcoholDetailActivity::class.java)
+            intent.putExtra("id", alcoholData[position].id)
             context.startActivity(intent)
         }
     }

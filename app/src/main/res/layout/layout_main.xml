@@ -88,7 +88,6 @@
             android:layout_marginLeft="27dp"
             android:layout_marginTop="58dp"
             android:fontFamily="@font/noto_sans_kr_bold"
-            android:text="최강술꾼"
             android:textColor="@color/quala_green"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"

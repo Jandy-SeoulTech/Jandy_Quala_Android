@@ -28,6 +28,6 @@ interface IQualaService {
     fun requestConditionalAlcohol(
         @Query("levelStats") levelStats: List<Int>?,
         @Query("situations") situations: List<String>?,
-        @Query("category") category: String
+        @Query("category") category: String?
     ): Call<AlcoholConditionalResponse>
 }

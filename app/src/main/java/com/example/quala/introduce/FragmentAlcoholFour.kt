@@ -49,7 +49,7 @@ class FragmentAlcoholFour : Fragment() {
                 cAlcoholList.add(i)
             }
             for (i in cAlcoholList){
-                datas.add(Alcohol(i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
+                datas.add(Alcohol(i.alcohol.id, i.alcohol.image, i.alcohol.name, i.alcohol.level, i.alcohol.size, i.alcohol.starPoint, i.alcohol.introduce))
                 adapter.notifyDataSetChanged()
             }
         }

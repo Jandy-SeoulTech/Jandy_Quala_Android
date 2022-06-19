@@ -1,8 +1,8 @@
 package com.example.quala.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,11 +15,13 @@ import com.example.quala.httpbody.AlcoholInfo
 import com.example.quala.introduce.IntroduceActivity
 import com.example.quala.mypage.MyPageActivity
 import com.example.quala.recommend.RecommendActivity
+import com.example.quala.sharedpreference.QualaApplication
 import com.example.quala.viewmodel.AlcoholViewModel
 import com.google.android.material.navigation.NavigationView
 import java.util.*
 import kotlin.collections.ArrayList
 
+@SuppressLint("NotifyDataSetChanged")
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
@@ -48,8 +50,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         alcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
 
-        subscribeViewModel()
+        subscribeAllAlcoholViewModel()
+        subscribeConditionalAlcoholViewModel()
         callInquireAllAlcoholAPI()
+        callInquireConditionalAlcoholAPI(null, listOf("PARTY"), null)
 
         // 요일별 문구 세팅
         setDayText()
@@ -61,6 +65,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 rvCarousel.setAlpha(true)
                 rvCarousel.setIntervalRatio(0.55f)
 
+                tvTitle1Main.text = QualaApplication.prefs.nickname
                 adapter1 = RecoAdapter(datas1)
                 rvRecommend1.adapter = adapter1
                 adapter2 = RecoAdapter(datas2)
@@ -79,7 +84,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun callInquireAllAlcoholAPI() = alcoholViewModel.requestAllAlcohol()
 
-    private fun subscribeViewModel() {
+    private fun callInquireConditionalAlcoholAPI(levelStats: List<Int>?, situations: List<String>?, category: String?) = alcoholViewModel.requestConditionalAlcohol(levelStats, situations, category)
+
+    private fun subscribeAllAlcoholViewModel() {
         alcoholViewModel.allAlcoholOkCode.observe(this) {
             if (it) {
                 val alcohols = alcoholViewModel.alcoholList
@@ -90,12 +97,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 else {
                     setDayAlcohol(alcohols)
                     setRecommendAlcohols(alcohols)
-                    setSituationAlcohols(alcohols)
                     setHotAlcohols(alcohols)
                 }
             } else {
                 Toast.makeText(this, "죄송합니다. 술 목록 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun subscribeConditionalAlcoholViewModel() {
+        alcoholViewModel.cAlcoholList.observe(this) {
+            val alcohols = it.alcohols
+            setSituationAlcohols(alcohols)
         }
     }
 
@@ -117,6 +130,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setSituationAlcohols(alcohols: ArrayList<AlcoholInfo>) {
+        for (i in alcohols) {
+            datas2.add(RecoData(i.alcohol.id, i.alcohol.image, i.alcohol.name))
+        }
         adapter2.notifyDataSetChanged()
     }
 
