@@ -4,14 +4,15 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.example.quala.R
 import com.example.quala.databinding.ActivityResultBinding
 import com.example.quala.httpbody.RecommendRequest
 import com.example.quala.httpbody.ResultInfo
 import com.example.quala.mypage.MyFormatter
+import com.example.quala.sharedpreference.QualaApplication
 import com.example.quala.viewmodel.RecommendResultViewModel
 import com.github.mikephil.charting.data.RadarData
 import com.github.mikephil.charting.data.RadarDataSet
@@ -34,6 +35,9 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         sweet = intent.getIntExtra("sweet", 0)
         acidity = intent.getIntExtra("acidity", 0)
@@ -67,18 +71,15 @@ class ResultActivity : AppCompatActivity() {
             if (it) {
                 recommendResult = recommendResultViewModel.recommendResult
 
-                Glide.with(this)
-                    .load(recommendResult.image)
-                    .error(R.drawable.no_item_temp)
-                    .into(binding.imageView)
-
                 binding.apply {
-                    tvName.text = recommendResult.name
-                    tvPercentNum.text = recommendResult.level.toString()
-                    tvVolumeNum.text = recommendResult.size.toString()
-                    ratingBar.starProgress = recommendResult.starPoint
-                    tvRating.text = recommendResult.starPoint.toString()
-                    tvDescription.text = recommendResult.introduce
+                    tvNickname.text = QualaApplication.prefs.nickname
+                    tvNickname2.text = QualaApplication.prefs.nickname
+
+                    val resultData = mutableListOf<Result>()
+                    for (i in 1..5) {
+                        resultData.add(Result(1, "ddd", "고흥 유자주"))
+                    }
+                    recyclerRecommend.adapter = ResultAdapter(resultData)
                 }
             } else {
                 Toast.makeText(this, "죄송합니다. 술 추천 결과 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
@@ -97,28 +98,27 @@ class ResultActivity : AppCompatActivity() {
 
         // 실제 값이 들어갈 데이터
         val scores: ArrayList<RadarEntry> = ArrayList()
-        scores.add(RadarEntry(sweet.toFloat()))
-        scores.add(RadarEntry(acidity.toFloat()))
-        scores.add(RadarEntry(plain.toFloat()))
-        scores.add(RadarEntry(body.toFloat()))
         scores.add(RadarEntry(percent.toFloat()))
+        scores.add(RadarEntry(sweet.toFloat()))
+        scores.add(RadarEntry(body.toFloat()))
+        scores.add(RadarEntry(plain.toFloat()))
+        scores.add(RadarEntry(acidity.toFloat()))
 
         val radarData = RadarData()
         val radarFullSet = RadarDataSet(full, "full")
         val radarDataSet = RadarDataSet(scores, "scores")
-        val labels = arrayOf("당도", "산도", "고소함", "바디감", "도수")
+        val labels = arrayOf("도수", "당도", "바디감", "고소함", "산도")
 
-        radarFullSet.color = Color.rgb(0, 56, 40)
-        radarFullSet.fillColor = Color.rgb(0, 56, 40)
+        radarFullSet.color = Color.rgb(0, 97, 46)
+        radarFullSet.fillColor = Color.rgb(0, 97, 46)
         radarFullSet.setDrawFilled(true)
-        radarFullSet.fillAlpha = 230
+        radarFullSet.fillAlpha = 360
         radarFullSet.valueFormatter = MyFormatter()
 
-        radarDataSet.color = Color.rgb(158, 164, 170)
-        radarDataSet.fillColor = Color.rgb(158, 164, 170)
+        radarDataSet.color = Color.rgb(0, 97, 46)
+        radarDataSet.fillColor = Color.rgb(0, 97, 46)
         radarDataSet.setDrawFilled(true)
-        radarDataSet.fillAlpha = 100
-        radarDataSet.lineWidth = 1f
+        radarDataSet.fillAlpha = 420
         radarDataSet.valueFormatter = MyFormatter()
 
         radarData.addDataSet(radarFullSet)
@@ -126,10 +126,10 @@ class ResultActivity : AppCompatActivity() {
 
         binding.radarChart.apply {
             // 차트 안쪽 선 색상 설정
-            webColor = Color.rgb(100, 100, 100)
-            webColorInner = Color.rgb(100, 100, 100)
-            webLineWidth = 1f
-            webLineWidthInner = 1f
+            webColor = Color.rgb(0, 97, 46)
+            webColorInner = Color.rgb(0, 97, 46)
+            webLineWidth = 0.5f
+            webLineWidthInner = 0.5f
 
             // 데이터와 라벨 설정
             data = radarData
@@ -149,5 +149,10 @@ class ResultActivity : AppCompatActivity() {
             description.isEnabled = false
             yAxis.setDrawLabels(false)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_test, menu)
+        return true
     }
 }

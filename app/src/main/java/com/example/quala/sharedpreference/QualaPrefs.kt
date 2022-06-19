@@ -11,4 +11,10 @@ class QualaPrefs(context: Context) {
         set(value){
             prefs.edit().putString("accessToken",value).apply()
         }
+
+    var nickname:String?
+        get() = prefs.getString("nickname", NoNickname.NO_NICKNAME.name) ?: NoNickname.NO_NICKNAME.name
+        set(value){
+            prefs.edit().putString("nickname",value).apply()
+        }
 }

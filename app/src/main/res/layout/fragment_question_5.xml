@@ -43,15 +43,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress" />
 
-    <ImageView
-        android:id="@+id/iv_question"
-        android:layout_width="220dp"
-        android:layout_height="200dp"
+    <LinearLayout
+        android:id="@+id/linear_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:src="@drawable/question_temp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_question" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_question">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test_5_1" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/test_5_2"/>
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_select_1"
@@ -60,15 +68,15 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/solid_button_green"
+        android:background="@drawable/solid_button_test"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:outlineProvider="none"
         android:text="시원한 수박"
-        android:textColor="@color/quala_white"
+        android:textColor="@color/quala_green"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_question" />
+        app:layout_constraintTop_toBottomOf="@+id/linear_img" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_select_2"
@@ -77,11 +85,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/solid_button_green"
+        android:background="@drawable/solid_button_test"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:outlineProvider="none"
         android:text="새콤한 자두"
-        android:textColor="@color/quala_white"
+        android:textColor="@color/quala_green"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

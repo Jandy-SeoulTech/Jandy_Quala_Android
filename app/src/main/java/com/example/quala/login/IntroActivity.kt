@@ -35,6 +35,8 @@ class IntroActivity : AppCompatActivity() {
                     userId = user.id.toString()
                     userNickname = user.kakaoAccount?.profile?.nickname.toString()
 
+                    QualaApplication.prefs.nickname = userNickname
+
                     val loginInfo = getLoginInfo()
                     callLoginAPI(loginInfo)
                 } else {

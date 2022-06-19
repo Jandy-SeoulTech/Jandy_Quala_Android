@@ -33,7 +33,9 @@
         <entry key="app/src/main/res/drawable/solid_button_green.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/solid_button_grey.xml" value="0.3355" />
         <entry key="app/src/main/res/drawable/solid_button_inactive.xml" value="0.2075" />
+        <entry key="app/src/main/res/drawable/solid_button_test.xml" value="0.2755" />
         <entry key="app/src/main/res/drawable/solid_button_toggle.xml" value="0.2075" />
+        <entry key="app/src/main/res/drawable/solid_button_white.xml" value="0.2755" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.3355" />
         <entry key="app/src/main/res/font/font_family.xml" value="0.40625" />
         <entry key="app/src/main/res/layout-v28/layout_main_carousel.xml" value="0.3509963768115942" />
@@ -45,7 +47,7 @@
         <entry key="app/src/main/res/layout/activity_my_page.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/activity_my_review.xml" value="0.327445652173913" />
         <entry key="app/src/main/res/layout/activity_recommend.xml" value="0.3509963768115942" />
-        <entry key="app/src/main/res/layout/activity_result.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_write_review.xml" value="0.33" />
         <entry key="app/src/main/res/layout/custom_tab_button.xml" value="1.25" />
@@ -67,8 +69,8 @@
         <entry key="app/src/main/res/layout/fragment_question_3.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_question_4.xml" value="0.4542728635682159" />
         <entry key="app/src/main/res/layout/fragment_question_5.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_question_6.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_question_7.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_question_6.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/fragment_question_7.xml" value="0.6434010152284264" />
         <entry key="app/src/main/res/layout/fragment_question_8.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_question_six.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/fragment_question_twi.xml" value="0.15670289855072464" />
@@ -86,6 +88,7 @@
         <entry key="app/src/main/res/layout/recycler_carousel_item.xml" value="0.15670289855072464" />
         <entry key="app/src/main/res/layout/recycler_my_review.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_reco_item.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/recycler_result.xml" value="0.365036231884058" />
         <entry key="app/src/main/res/layout/recycler_review.xml" value="0.3915094339622642" />
         <entry key="app/src/main/res/menu/drawer_navigation.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/menu/toolbar_detail.xml" value="0.37604166666666666" />

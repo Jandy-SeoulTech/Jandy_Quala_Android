@@ -83,19 +83,18 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         val radarData = RadarData()
         val radarFullSet = RadarDataSet(full, "full")
         val radarDataSet = RadarDataSet(scores, "scores")
-        val labels = arrayOf("당도", "산도", "고소함", "바디감", "도수")
+        val labels = arrayOf("도수", "당도", "바디감", "고소함", "산도")
 
-        radarFullSet.color = Color.rgb(0, 56, 40)
-        radarFullSet.fillColor = Color.rgb(0, 56, 40)
+        radarFullSet.color = Color.rgb(0, 97, 46)
+        radarFullSet.fillColor = Color.rgb(0, 97, 46)
         radarFullSet.setDrawFilled(true)
-        radarFullSet.fillAlpha = 230
+        radarFullSet.fillAlpha = 360
         radarFullSet.valueFormatter = MyFormatter()
 
-        radarDataSet.color = Color.rgb(158, 164, 170)
-        radarDataSet.fillColor = Color.rgb(158, 164, 170)
+        radarDataSet.color = Color.rgb(0, 97, 46)
+        radarDataSet.fillColor = Color.rgb(0, 97, 46)
         radarDataSet.setDrawFilled(true)
-        radarDataSet.fillAlpha = 100
-        radarDataSet.lineWidth = 1f
+        radarDataSet.fillAlpha = 420
         radarDataSet.valueFormatter = MyFormatter()
 
         radarData.addDataSet(radarFullSet)
@@ -103,10 +102,10 @@ class MyPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         binding.mypageLayout.radarChart.apply {
             // 차트 안쪽 선 색상 설정
-            webColor = Color.rgb(100, 100, 100)
-            webColorInner = Color.rgb(100, 100, 100)
-            webLineWidth = 1f
-            webLineWidthInner = 1f
+            webColor = Color.rgb(0, 97, 46)
+            webColorInner = Color.rgb(0, 97, 46)
+            webLineWidth = 0.5f
+            webLineWidthInner = 0.5f
 
             // 데이터와 라벨 설정
             data = radarData
