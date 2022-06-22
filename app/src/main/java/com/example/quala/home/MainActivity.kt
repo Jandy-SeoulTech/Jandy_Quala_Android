@@ -12,11 +12,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityMainBinding
 import com.example.quala.httpbody.AlcoholInfo
+import com.example.quala.httpbody.ResultInfo
 import com.example.quala.introduce.IntroduceActivity
 import com.example.quala.mypage.MyPageActivity
 import com.example.quala.recommend.RecommendActivity
 import com.example.quala.sharedpreference.QualaApplication
-import com.example.quala.viewmodel.AlcoholViewModel
+import com.example.quala.viewmodel.HomeViewModel
 import com.google.android.material.navigation.NavigationView
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,7 +26,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
-    lateinit var alcoholViewModel: AlcoholViewModel
+    lateinit var alcoholViewModel: HomeViewModel
 
     val carouselData = mutableListOf<CarouselData>()
     lateinit var carouselAdapter: CarouselAdapter
@@ -48,12 +49,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.navigationView.setNavigationItemSelectedListener(this)
 
-        alcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
+        alcoholViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         subscribeAllAlcoholViewModel()
         subscribeConditionalAlcoholViewModel()
+        subscribeUserRecommendViewModel()
         callInquireAllAlcoholAPI()
         callInquireConditionalAlcoholAPI(null, listOf("PARTY"), null)
+        callInqureUserRecommendAPI()
 
         // 요일별 문구 세팅
         setDayText()
@@ -86,6 +89,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun callInquireConditionalAlcoholAPI(levelStats: List<Int>?, situations: List<String>?, category: String?) = alcoholViewModel.requestConditionalAlcohol(levelStats, situations, category)
 
+    private fun callInqureUserRecommendAPI() = alcoholViewModel.requestuserRecommend()
+
     private fun subscribeAllAlcoholViewModel() {
         alcoholViewModel.allAlcoholOkCode.observe(this) {
             if (it) {
@@ -96,7 +101,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 else {
                     setDayAlcohol(alcohols)
-                    setRecommendAlcohols(alcohols)
                     setHotAlcohols(alcohols)
                 }
             } else {
@@ -112,9 +116,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun subscribeUserRecommendViewModel() {
+        alcoholViewModel.userRecommendOkCode.observe(this) {
+            if (it) {
+                val alcohols = alcoholViewModel.userRecommend
+
+                if (alcohols.isNullOrEmpty()) {
+                    Toast.makeText(this, "추천 아이템이 존재하지 않습니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    setRecommendAlcohols(alcohols)
+                }
+            }
+        }
+    }
+
     private fun setDayAlcohol(alcohols: ArrayList<AlcoholInfo>) {
         val randomIndexList: MutableSet<Int> = mutableSetOf()
-        for (i in 0..7) {
+        for (i in 0..8) {
             randomIndexList.add((0 until alcohols.size).random())
         }
 
@@ -125,7 +143,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         carouselAdapter.notifyDataSetChanged()
     }
 
-    private fun setRecommendAlcohols(alcohols: ArrayList<AlcoholInfo>) {
+    private fun setRecommendAlcohols(alcohols: ArrayList<ResultInfo>) {
+        for (i in alcohols) {
+            datas1.add(RecoData(i.id, i.image, i.name))
+        }
         adapter1.notifyDataSetChanged()
     }
 

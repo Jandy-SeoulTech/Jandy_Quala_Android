@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.quala.R
 import com.example.quala.databinding.ActivityResultBinding
+import com.example.quala.detail.Review
+import com.example.quala.detail.ReviewAdapter
 import com.example.quala.httpbody.RecommendRequest
 import com.example.quala.httpbody.ResultInfo
 import com.example.quala.mypage.MyFormatter
@@ -23,7 +25,8 @@ class ResultActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityResultBinding
     lateinit var recommendResultViewModel: RecommendResultViewModel
-    lateinit var recommendResult: ResultInfo
+    lateinit var adapter: ResultAdapter
+    val datas = mutableListOf<Result>()
 
     var sweet = 0
     var acidity = 0
@@ -53,12 +56,17 @@ class ResultActivity : AppCompatActivity() {
         callRecommendAPI(resultData)
         subscribeViewModel()
 
-        binding.btnFinish.setOnClickListener {
-            val intent = Intent(this, RecommendActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-            finish()
+        binding.apply {
+            btnFinish.setOnClickListener {
+                val intent = Intent(this@ResultActivity, RecommendActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+                finish()
+            }
+
+            adapter = ResultAdapter(datas)
+            recyclerRecommend.adapter = adapter
         }
     }
 
@@ -69,17 +77,14 @@ class ResultActivity : AppCompatActivity() {
     private fun subscribeViewModel() {
         recommendResultViewModel.recommendResultOkCode.observe(this) {
             if (it) {
-                recommendResult = recommendResultViewModel.recommendResult
+                val result = recommendResultViewModel.recommendResult
 
-                binding.apply {
-                    tvNickname.text = QualaApplication.prefs.nickname
-                    tvNickname2.text = QualaApplication.prefs.nickname
-
-                    val resultData = mutableListOf<Result>()
-                    for (i in 1..5) {
-                        resultData.add(Result(1, "ddd", "고흥 유자주"))
+                if (result.isNullOrEmpty()) {
+                } else {
+                    result.forEach { i ->
+                        datas.add(Result(i.id, i.image, i.name))
+                        adapter.notifyDataSetChanged()
                     }
-                    recyclerRecommend.adapter = ResultAdapter(resultData)
                 }
             } else {
                 Toast.makeText(this, "죄송합니다. 술 추천 결과 조회 요청에 실패하여 잠시후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()

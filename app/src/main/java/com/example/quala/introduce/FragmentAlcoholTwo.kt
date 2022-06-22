@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quala.databinding.FragmentAlcoholTwoBinding
 import com.example.quala.httpbody.AlcoholInfo
-import com.example.quala.viewmodel.AlcoholViewModel
+import com.example.quala.viewmodel.IntroduceViewModel
 
 class FragmentAlcoholTwo : Fragment() {
 
@@ -19,7 +19,7 @@ class FragmentAlcoholTwo : Fragment() {
     val datas = mutableListOf<Alcohol>()
     lateinit var adapter: AlcoholAdapter
 
-    lateinit var cAlcoholViewModel: AlcoholViewModel
+    lateinit var cAlcoholViewModel: IntroduceViewModel
     val cAlcoholList = ArrayList<AlcoholInfo>()
 
     override fun onAttach(context: Context) {
@@ -30,7 +30,7 @@ class FragmentAlcoholTwo : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentAlcoholTwoBinding.inflate(inflater, container, false)
 
-        cAlcoholViewModel = ViewModelProvider(this).get(AlcoholViewModel::class.java)
+        cAlcoholViewModel = ViewModelProvider(this).get(IntroduceViewModel::class.java)
 
         subscribeViewModel()
         callConditionalAlcoholAPI(null, null, "FRUIT")

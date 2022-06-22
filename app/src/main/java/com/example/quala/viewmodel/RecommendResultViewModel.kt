@@ -13,31 +13,15 @@ class RecommendResultViewModel: ViewModel() {
 
     val recommendResultOkCode: MutableLiveData<Boolean> = MutableLiveData()
 
-    lateinit var recommendResult: ResultInfo
+    private var _recommendResult: ArrayList<ResultInfo>? = arrayListOf()
+    val recommendResult: ArrayList<ResultInfo>?
+        get() = _recommendResult
 
     fun requestRecommendResult(recommendRequest: RecommendRequest) {
         QualaAPI.requestRecommendResult(recommendRequest).enqueue(object: Callback<RecommendResponse> {
             override fun onResponse(call: Call<RecommendResponse>, response: Response<RecommendResponse>) {
 
-                recommendResult = response.body()?.let {
-                    ResultInfo(
-                        id = it.result.id,
-                        name = it.result.name,
-                        image = it.result.image,
-                        size = it.result.size,
-                        level = it.result.level,
-                        starPoint = it.result.starPoint,
-                        sweet = it.result.sweet,
-                        acidity = it.result.acidity,
-                        plain = it.result.plain,
-                        body = it.result.body,
-                        introduce = it.result.introduce,
-                        raw = it.result.raw,
-                        situation = it.result.situation,
-                        category = it.result.category,
-                        food = it.result.food
-                    )
-                } ?: ResultInfo()
+                _recommendResult = response.body()?.result
 
                 if (response.isSuccessful) {
                     recommendResultOkCode.postValue(true)

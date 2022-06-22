@@ -2,6 +2,7 @@ package com.example.quala.detail
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,8 @@ class FragmentAlcoholDescription : Fragment() {
     lateinit var detailActivity: AlcoholDetailActivity
     lateinit var detailViewModel: DetailViewModel
     lateinit var alcoholDetailBottom: AlcoholDetailBottom
+
+    var foods: ArrayList<String> = arrayListOf()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,9 +47,16 @@ class FragmentAlcoholDescription : Fragment() {
                     chipSituation.text = alcoholDetailBottom.situation
                 }
 
-                val foods: ArrayList<String> = alcoholDetailBottom.food.split(", ") as ArrayList<String>
+
+                foods = if (alcoholDetailBottom.food.contains(",")) {
+                    alcoholDetailBottom.food.split(",") as ArrayList<String>
+                } else {
+                    arrayListOf(alcoholDetailBottom.food)
+                }
+
                 for (food in foods) {
                     val chip = createChip(food)
+                    Log.d("Quala - create chip", "$chip")
                     binding.chipGroup2.addView(chip)
                 }
 

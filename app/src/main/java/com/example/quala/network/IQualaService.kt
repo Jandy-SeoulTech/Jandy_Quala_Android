@@ -30,4 +30,7 @@ interface IQualaService {
         @Query("situations") situations: List<String>?,
         @Query("category") category: String?
     ): Call<AlcoholConditionalResponse>
+
+    @GET("recommend")
+    fun requestUserRecommend(): Call<RecommendResponse>
 }

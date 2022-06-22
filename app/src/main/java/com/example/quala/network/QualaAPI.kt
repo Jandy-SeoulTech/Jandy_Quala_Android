@@ -32,4 +32,8 @@ object QualaAPI {
     fun requestConditionalAlcohol(levelStats: List<Int>?, situations: List<String>?, category: String?): Call<AlcoholConditionalResponse> {
         return QualaService.service.requestConditionalAlcohol(levelStats, situations, category)
     }
+
+    fun requestUserRecommend(): Call<RecommendResponse> {
+        return QualaService.service.requestUserRecommend()
+    }
 }

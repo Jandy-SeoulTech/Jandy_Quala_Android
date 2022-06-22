@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlcoholViewModel: ViewModel() {
+class HomeViewModel: ViewModel() {
 
     var allAlcoholOkCode: MutableLiveData<Boolean> = MutableLiveData()
 
@@ -56,6 +56,34 @@ class AlcoholViewModel: ViewModel() {
 
             override fun onFailure(call: Call<AlcoholConditionalResponse>, t: Throwable) {
                 Log.d("[Quala API] alcohol", "술 조건 조회 요청 실패, Throwable : ${t.message}")
+            }
+
+        })
+    }
+
+    val userRecommendOkCode: MutableLiveData<Boolean> = MutableLiveData()
+
+    private var _userRecommend: ArrayList<ResultInfo>? = arrayListOf()
+    val userRecommend: ArrayList<ResultInfo>?
+        get() = _userRecommend
+
+    fun requestuserRecommend() {
+        QualaAPI.requestUserRecommend().enqueue(object: Callback<RecommendResponse> {
+            override fun onResponse(call: Call<RecommendResponse>, response: Response<RecommendResponse>) {
+
+                _userRecommend = response.body()?.result
+
+                if (response.isSuccessful) {
+                    userRecommendOkCode.postValue(true)
+                    Log.d("[Quala API] recommend", "홈 화면 유저 추천 정보 조회 요청 성공")
+                } else {
+                    Log.d("[Quala API] recommend", "홈 화면 유저 추천 정보 조회 요청 실패, error : ${response.code()}, ${response.errorBody()?.string()!!}")
+                }
+            }
+
+            override fun onFailure(call: Call<RecommendResponse>, t: Throwable) {
+                userRecommendOkCode.postValue(false)
+                Log.d("[Quala API] recommend", "홈 화면 유저 추천 정보 조회 요청 실패, Throwable : ${t.message}")
             }
 
         })

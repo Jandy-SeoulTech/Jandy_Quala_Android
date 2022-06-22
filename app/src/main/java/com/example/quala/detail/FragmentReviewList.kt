@@ -20,7 +20,6 @@ class FragmentReviewList : Fragment() {
     lateinit var reviewViewModel: ReviewViewModel
 
     val datas = mutableListOf<Review>()
-    var alcoholId: Long = 7
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -30,9 +29,11 @@ class FragmentReviewList : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentReviewListBinding.inflate(inflater, container, false)
 
+        var id = (activity as AlcoholDetailActivity).id
+
         reviewViewModel = ViewModelProvider(detailActivity).get(ReviewViewModel::class.java)
 
-        callInquireReviewAPI(alcoholId)
+        callInquireReviewAPI(id)
         subscribeViewModel()
 
         val layoutManager = LinearLayoutManager(detailActivity)

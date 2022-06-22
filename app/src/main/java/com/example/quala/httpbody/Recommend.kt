@@ -12,7 +12,7 @@ data class RecommendRequest(
 
 data class RecommendResponse(
     @SerializedName("data")
-    val result: ResultInfo
+    val result: ArrayList<ResultInfo>
 )
 
 data class ResultInfo (
